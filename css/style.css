@@ -727,23 +727,24 @@ textarea.input {
   position: relative;
 }
 
+.main__container::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0.9375rem;
+  background: -webkit-gradient(linear, left top, right top, color-stop(-3.72%, #272727), color-stop(53.35%, rgba(17, 17, 17, 0)));
+  background: -o-linear-gradient(left, #272727 -3.72%, rgba(17, 17, 17, 0) 53.35%);
+  background: linear-gradient(90deg, #272727 -3.72%, rgba(17, 17, 17, 0) 53.35%);
+}
+
 .main__image {
   position: relative;
   top: 0;
   right: 0;
   width: 100%;
-}
-
-.main__image::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background: -webkit-gradient(linear, left top, right top, color-stop(-3.72%, #272727), color-stop(53.35%, rgba(17, 17, 17, 0)));
-  background: -o-linear-gradient(left, #272727 -3.72%, rgba(17, 17, 17, 0) 53.35%);
-  background: linear-gradient(90deg, #272727 -3.72%, rgba(17, 17, 17, 0) 53.35%);
 }
 
 .main__block {
@@ -918,9 +919,9 @@ textarea.input {
     font-weight: 500;
     font-size: 1.25rem;
     line-height: 1.21875;
-    -webkit-transition: all 0.8s ease 0s;
-    -o-transition: all 0.8s ease 0s;
-    transition: all 0.8s ease 0s;
+    -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
     color: #FFFFFF;
   }
 
@@ -941,9 +942,9 @@ textarea.input {
     background-color: #FFFFFF;
     overflow: auto;
     padding: 6.25rem 2.5rem 7.5rem 0.9375rem;
-    -webkit-transition: all 0.8s ease 0s;
-    -o-transition: all 0.8s ease 0s;
-    transition: all 0.8s ease 0s;
+    -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
   }
 
   .menu::before {
@@ -955,9 +956,9 @@ textarea.input {
     top: 0;
     background-color: #ffffff;
     right: -100%;
-    -webkit-transition: all 0.8s ease 0s;
-    -o-transition: all 0.8s ease 0s;
-    transition: all 0.8s ease 0s;
+    -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
   }
 
   .menu::after {
@@ -968,9 +969,9 @@ textarea.input {
     bottom: 0;
     right: -100%;
     background-color: #499AF9;
-    -webkit-transition: all 0.8s ease 0s;
-    -o-transition: all 0.8s ease 0s;
-    transition: all 0.8s ease 0s;
+    -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
   }
 
   .menu-open .menu {
@@ -1060,6 +1061,12 @@ textarea.input {
     padding: 0;
   }
 
+  .main__container::before {
+    left: 0;
+    background: -o-linear-gradient(65.72deg, #272727 1.87%, rgba(33, 33, 33, 0.69488) 14.58%, rgba(30, 30, 30, 0.600118) 23.9%, rgba(28, 28, 28, 0.496842) 32.95%, rgba(26, 26, 26, 0.421935) 37.19%, rgba(22, 22, 22, 0.203131) 42.6%, rgba(17, 17, 17, 0) 51.9%, rgba(17, 17, 17, 0) 56.36%, rgba(17, 17, 17, 0) 60.24%);
+    background: linear-gradient(24.28deg, #272727 1.87%, rgba(33, 33, 33, 0.69488) 14.58%, rgba(30, 30, 30, 0.600118) 23.9%, rgba(28, 28, 28, 0.496842) 32.95%, rgba(26, 26, 26, 0.421935) 37.19%, rgba(22, 22, 22, 0.203131) 42.6%, rgba(17, 17, 17, 0) 51.9%, rgba(17, 17, 17, 0) 56.36%, rgba(17, 17, 17, 0) 60.24%);
+  }
+
   .main__image {
     height: 100vh;
   }
@@ -1135,7 +1142,7 @@ textarea.input {
 
 @media (max-width: 31.25em) {
   .main__block {
-    width: 100%;
+    width: 94%;
   }
 }
 
