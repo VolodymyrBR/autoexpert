@@ -409,7 +409,6 @@
     }
     const da = new DynamicAdapt("max");
     da.init();
-    "use strict";
     const searchBox = document.getElementById("search");
     const searchResults = document.getElementById("search-results");
     const searchResultItems = searchResults.querySelectorAll("li");
@@ -469,6 +468,11 @@
             searchBox.focus();
         }));
     }));
+    const iconCart = document.querySelector(".product-card");
+    document.addEventListener("click", cartClick);
+    function cartClick(i) {
+        if (i.target.closest(".info__cart")) iconCart.classList.toggle("_cart-in");
+    }
     window["FLS"] = true;
     isWebp();
     menuInit();
