@@ -468,11 +468,13 @@
             searchBox.focus();
         }));
     }));
-    const iconCart = document.querySelector(".product-card");
-    document.addEventListener("click", cartClick);
-    function cartClick(i) {
-        if (i.target.closest(".info__cart")) iconCart.classList.toggle("_cart-in");
-    }
+    const cartButtons = document.querySelectorAll(".info__cart");
+    cartButtons.forEach((button => {
+        button.addEventListener("click", (() => {
+            const infoBlock = button.closest(".product-card__info");
+            if (infoBlock.classList.contains("_cart-in")) infoBlock.classList.remove("_cart-in"); else infoBlock.classList.add("_cart-in");
+        }));
+    }));
     window["FLS"] = true;
     isWebp();
     menuInit();
