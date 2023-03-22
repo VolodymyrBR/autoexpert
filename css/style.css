@@ -1374,7 +1374,7 @@ textarea.input {
 }
 
 :root {
-  --swiper-theme-color: #007aff;
+  --swiper-theme-color: #2E7FDE;
 }
 
 .swiper {
@@ -2935,10 +2935,6 @@ button.swiper-pagination-bullet {
 
   .info-us__card:not(:last-child) {
     border: none;
-  }
-
-  .partners__icon {
-    height: 9.375rem;
   }
 }
 

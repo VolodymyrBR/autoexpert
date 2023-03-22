@@ -4221,6 +4221,7 @@
                 autoHeight: true,
                 speed: 800,
                 loop: true,
+                lazy: true,
                 autoplay: {
                     delay: 3e3,
                     disableOnInteraction: false
@@ -4236,16 +4237,16 @@
                 breakpoints: {
                     320: {
                         slidesPerView: 1,
-                        spaceBetween: 0,
-                        autoHeight: true
+                        spaceBetween: 0
                     },
-                    480: {
+                    401: {
                         slidesPerView: 2,
                         spaceBetween: 50
                     },
                     768: {
                         slidesPerView: 3,
-                        spaceBetween: 50
+                        spaceBetween: 50,
+                        dynamicBullets: true
                     },
                     1024: {
                         slidesPerView: 4,
