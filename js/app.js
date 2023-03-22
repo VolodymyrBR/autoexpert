@@ -4239,7 +4239,7 @@
                         spaceBetween: 0,
                         autoHeight: true
                     },
-                    401: {
+                    480: {
                         slidesPerView: 2,
                         spaceBetween: 50
                     },
