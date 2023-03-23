@@ -4245,8 +4245,7 @@
                     },
                     768: {
                         slidesPerView: 3,
-                        spaceBetween: 50,
-                        dynamicBullets: true
+                        spaceBetween: 50
                     },
                     1024: {
                         slidesPerView: 4,
@@ -4256,16 +4255,28 @@
                 on: {}
             });
             if (document.querySelector(".response__slider")) new core(".response__slider", {
-                modules: [ Navigation, Mousewheel ],
+                modules: [ Navigation ],
                 observer: true,
                 observeParents: true,
-                slidesPerView: 4,
-                spaceBetween: 100,
-                autoHeight: true,
+                slidesPerView: 3,
                 speed: 800,
                 navigation: {
-                    prevEl: ".swiper-button-prev",
-                    nextEl: ".swiper-button-next"
+                    prevEl: ".response__prev",
+                    nextEl: ".response__next"
+                },
+                breakpoints: {
+                    320: {
+                        slidesPerView: 1,
+                        spaceBetween: 0
+                    },
+                    500: {
+                        slidesPerView: 2,
+                        spaceBetween: 10
+                    },
+                    1150: {
+                        slidesPerView: 3,
+                        spaceBetween: 40
+                    }
                 },
                 on: {}
             });
@@ -4564,6 +4575,10 @@
                     cartCountSpan.textContent = cartCount;
                 }
             }));
+        }));
+        const response = document.querySelectorAll(".body-response__text");
+        response.forEach((response => {
+            if ("" === response.textContent.trim()) response.style.display = "none";
         }));
         window["FLS"] = true;
         isWebp();
