@@ -4239,7 +4239,7 @@
                         slidesPerView: 1,
                         spaceBetween: 0
                     },
-                    401: {
+                    375: {
                         slidesPerView: 2,
                         spaceBetween: 50
                     },
