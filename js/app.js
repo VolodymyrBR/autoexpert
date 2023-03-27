@@ -5085,11 +5085,8 @@
         };
         function scrollFunction() {
             var scrollToTopBtn = document.querySelector(".button-up");
-            var footer = document.querySelector("footer");
-            var footerHeight = footer.offsetHeight;
             var scrolled = document.documentElement.scrollTop;
             if (scrolled > 200) scrollToTopBtn.style.display = "block"; else scrollToTopBtn.style.display = "none";
-            if (scrolled + window.innerHeight > footer.offsetTop) scrollToTopBtn.style.bottom = footerHeight + 20 + "px"; else scrollToTopBtn.style.bottom = "20px";
         }
         window["FLS"] = true;
         isWebp();
