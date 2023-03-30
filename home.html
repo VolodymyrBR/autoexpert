@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230329205345">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230330205506">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -327,7 +327,7 @@
 			<section data-watch data-watch-once data-watch-threshold="0.3" class="page__selection selection">
 				<div class="selection__container">
 					<div class="selection__title title title--big-white">Підберемо запчастини за Вас</div>
-					<button class="selection__button button button--white-blue">Підібрати</button>
+					<button data-popup="#popup-selection" class="selection__button button button--white-blue">Підібрати</button>
 					<div class="selection__info">Найточніший спосіб знайти потрібну запчастину - підбір по VIN-коду
 						автомобіля.
 						Це унікальний код, який містить в собі всю необхідну інформацію про транспортний засіб. Ви можете бути
@@ -949,37 +949,46 @@
 		</div>
 	</div>
 
-	<div id="order" aria-hidden="true" class="popup popup--order .popup_show ">
+	<div id="order" aria-hidden="true" class="popup popup--order">
 		<div class="popup__wrapper">
 			<div class="popup__content">
-				<button data-close type="button" class="popup__close">Закрити</button>
+				<button data-close type="button" class="popup__close _icon-x"></button>
 				<div class="popup-order">
 					<div class="popup-order__title title title--blue">Замовити товар</div>
 					<a href="#" class="popup-order__image">
 						<picture><source data-srcset="img/product/product.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/product/product.png" alt="product photo"></picture>
 					</a>
-					<form action="files/sendmail/sendmail.php" method="POST" class="popup-order__form form-order">
-						<!-- <input type="text" name="form[email]" data-error="Error" placeholder="E-mail" class="input"> -->
+					<form data-dev data-popup-message="#order-confirmation" action="files/sendmail/sendmail.php" method="POST" class="popup-order__form form-order">
 						<div class="form-order__product product-order">
 							<div class="product-order__code">Код: <span>ISS20301B</span></div>
 							<a href="#" class="product-order__name">Ліхтар габаритний діодний жовтий 24 V (в-во
 								ISSIKSAN)</a>
 						</div>
+						<div class="form-order__line quantity-order">
+							<div data-quantity class="quantity">
+								<button data-quantity-minus type="button" class="quantity__button quantity__button_minus"></button>
+								<div class="quantity__input">
+									<input data-quantity-value autocomplete="off" type="text" name="form[order-quantity]" value="1">
+								</div>
+								<button data-quantity-plus type="button" class="quantity__button quantity__button_plus"></button>
+							</div>
+						</div>
 						<div class="form-order__line line-order">
 							<label class="line-order__label" for="order-tel">Номер телефону <span>*</span></label>
-							<input class="line-order__input" type="tel" data-error="Error" name="form[order-tel]" id="order-tel" placeholder="+380 XX XXX-XX-XX" autocomplete="off">
+							<input class="line-order__input input" data-validate data-required type="tel" data-error="Введіть номер телефону" name="form[order-tel]" id="order-tel" placeholder="+380 XX XXX-XX-XX" autocomplete="off">
+							<div class="form__error"></div>
 						</div>
 						<div class="form-order__line line-order">
 							<label class="line-order__label" for="order-name">Ім'я<span>*</span></label>
-							<input class="line-order__input" type="text" data-error="Error" name="form[order-name]" id="order-name" placeholder="Ім'я" autocomplete="off">
+							<input class="line-order__input input" data-validate data-required type="text" data-error="Введіть Ваше ім'я" name="form[order-name]" id="order-name" placeholder="Ім'я" autocomplete="off">
 						</div>
 						<div class="form-order__line line-order">
 							<label class="line-order__label" for="order-second-name">Прізвище<span>*</span></label>
-							<input class="line-order__input" type="text" data-error="Error" name="form[order-second-name]" id="order-second-name" placeholder="Прізвище" autocomplete="off">
+							<input class="line-order__input input" data-validate data-required type="text" data-error="Введіть Ваше прізвище" name="form[order-second-name]" id="order-second-name" placeholder="Прізвище" autocomplete="off">
 						</div>
 						<div class="form-order__line line-order">
 							<label class="line-order__label" for="order-comment">Коментар</label>
-							<textarea class="line-order__input" name="form[order-comment]" id="order-comment" cols="30" rows="5" placeholder="Ваш коментар" autocomplete="off"></textarea>
+							<textarea data-autoheight class="line-order__input input" name="form[order-comment]" id="order-comment" placeholder="Ваш коментар" autocomplete="off"></textarea>
 						</div>
 						<button type="submit" class="button button button--border-blue">Замовити</button>
 					</form>
@@ -987,7 +996,45 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20230329205345"></script>
+
+	<div id="order-confirmation" aria-hidden="true" class="popup popup--order-confirmation">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<div class="order-confirmation">
+					<div class="order-confirmation__title title title--blue">Дякуємо за ваше замовлення</div>
+					<p>Ваше замовлення успішно відправлене.</p>
+					<p>Незабаром ми Вам зателефонуємо та надамо усю необхідну інформацію
+						про стан Вашого замовлення.</p>
+					<button data-close type="button" class="order-confirmation__button button button--blue">Повернутися</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="popup-selection" aria-hidden="true" class="popup popup--popup-selection">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<button data-close type="button" class="popup__close">Закрити</button>
+				<div class="popup-selection">
+					<form class="popup-selection__form form-selection" action="files/sendmail/sendmail.php" method="POST">
+						<div class="form-selection__title title title--blue">Підбір запчастин</div>
+						<div class="form-selection__line line-selection">
+							<label for="vin" class="line-selection">Ведіть дані автомобіля <span>*</span></label>
+							<input type="text" name="form[vin]" id="vin" data-error="Введіть VIN-код або державний номер автомобіля" data-validate data-required autocomplete="off" placeholder="Введіть VIN-код або державний номер автомобіля">
+						</div>
+
+
+						<input type="text" name="form[email]" data-error="Error" placeholder="E-mail" class="input">
+
+
+						<button type="submit" class="button">Send</button>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="js/app.min.js?_v=20230330205506"></script>
 </body>
 
 </html>

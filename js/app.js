@@ -5095,7 +5095,7 @@
         spollers();
         formFieldsInit({
             viewPass: false,
-            autoHeight: false
+            autoHeight: true
         });
         formSubmit();
         formQuantity();
