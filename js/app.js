@@ -5088,6 +5088,17 @@
             var scrolled = document.documentElement.scrollTop;
             if (scrolled > 200) scrollToTopBtn.style.display = "block"; else scrollToTopBtn.style.display = "none";
         }
+        const fileInput = document.querySelector(".line-upload__file");
+        const selectedFileName = document.querySelector(".line-upload__file-name");
+        fileInput.addEventListener("change", (function() {
+            const filePath = this.value;
+            const fileName = filePath.split("\\").pop().split("/").pop();
+            selectedFileName.innerHTML = fileName;
+            const files = this.files;
+            const fileList = [];
+            for (let i = 0; i < files.length; i++) fileList.push(files[i].name);
+            selectedFileName.innerHTML += "<br>" + fileList.join("<br>");
+        }));
         window["FLS"] = true;
         isWebp();
         addTouchClass();

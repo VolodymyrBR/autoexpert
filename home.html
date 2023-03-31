@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230330205506">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230331164410">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -328,7 +328,8 @@
 				<div class="selection__container">
 					<div class="selection__title title title--big-white">Підберемо запчастини за Вас</div>
 					<button data-popup="#popup-selection" class="selection__button button button--white-blue">Підібрати</button>
-					<div class="selection__info">Найточніший спосіб знайти потрібну запчастину - підбір по VIN-коду
+					<div class="selection__info">Найточніший спосіб знайти потрібну запчастину - підбір по
+						VIN-коду
 						автомобіля.
 						Це унікальний код, який містить в собі всю необхідну інформацію про транспортний засіб. Ви можете бути
 						впевнені за безпеку Ваших даних, ми не передаємо інформацію третім особам.</div>
@@ -1013,28 +1014,55 @@
 
 	<div id="popup-selection" aria-hidden="true" class="popup popup--popup-selection">
 		<div class="popup__wrapper">
-			<div class="popup__content">
-				<button data-close type="button" class="popup__close">Закрити</button>
+			<div class="popup__content"><button data-close type="button" class="popup__close _icon-x"></button>
 				<div class="popup-selection">
 					<form class="popup-selection__form form-selection" action="files/sendmail/sendmail.php" method="POST">
 						<div class="form-selection__title title title--blue">Підбір запчастин</div>
 						<div class="form-selection__line line-selection">
-							<label for="vin" class="line-selection">Ведіть дані автомобіля <span>*</span></label>
-							<input type="text" name="form[vin]" id="vin" data-error="Введіть VIN-код або державний номер автомобіля" data-validate data-required autocomplete="off" placeholder="Введіть VIN-код або державний номер автомобіля">
+							<label for="vin" class="line-selection__label">Ведіть
+								дані автомобіля <span>*</span></label>
+							<input data-autoheight class="line-selection__input input" type="text" name="form[vin]" id="vin" data-required data-validate autocomplete="off" placeholder="Введіть VIN-код або державний номер автомобіля" data-error="Введіть VIN-код або державний номер автомобіля">
+						</div>
+						<div class="form-selection__line line-selection">
+							<label for="parts" class="line-selection__label">Вкажіть
+								потрібну запчастину<span>*</span></label>
+							<textarea data-autoheight class="line-selection__input input" type="text" name="form[parts]" id="parts" data-required data-validate autocomplete="off" placeholder="Перерахуйте необхідні запчатини, їх кількість і сторону розташування" data-error="Вкажіть потрібні для вас деталі"></textarea>
 						</div>
 
+						<div class="form-selection__line line-upload">
+							<label for="file" class="line-upload__file-upload _icon-paperclip">Прикріпити файли</label>
+							<input type="file" class="line-upload__file" name="form[file]" id="file" multiple accept="image/jpeg, image/png, image/jpg">
+							<div class="line-upload__file-name">Файл не вибрано</div>
+							<div class="line-upload__file-info">Тут Ви можете прикріпити фото технічного паспорта або фото
+								запчастин у форматі .jpeg, .jpg, .png</div>
+						</div>
 
-						<input type="text" name="form[email]" data-error="Error" placeholder="E-mail" class="input">
-
-
-						<button type="submit" class="button">Send</button>
+						<div class="form-selection__line line-selection">
+							<label class="line-selection__label" for="selection-tel">Номер телефону <span>*</span></label>
+							<input class="line-selection__input input" data-required data-validate type="tel" data-error="Введіть номер телефону" name="form[selection-tel]" id="selection-tel" placeholder="+380 XX XXX-XX-XX" autocomplete="off">
+						</div>
+						<div class="form-selection__line line-selection">
+							<label class="line-selection__label" for="selection-name">Ім'я<span>*</span></label>
+							<input class="line-selection__input input" data-required data-validate type="text" data-error="Введіть Ваше ім'я" name="form[selection-name]" id="selection-name" placeholder="Ім'я" autocomplete="off">
+						</div>
+						<div class="form-selection__line line-selection">
+							<label class="line-selection__label" for="selection-second-name">Прізвище<span>*</span></label>
+							<input class="line-selection__input input" data-required data-validate type="text" data-error="Введіть Ваше прізвище" name="form[selection-second-name]" id="selection-second-name" placeholder="Прізвище" autocomplete="off">
+						</div>
+						<div class="form-selection__line line-selection">
+							<label class="line-selection__label" for="selection-mail">E-mail адреса<span>*</span></label>
+							<input class="line-selection__input input" data-required data-validate type="mail" data-error="Введіть E-mail адресу" name="form[selection-mail]" id="selection-mail" placeholder="E-mail" autocomplete="off">
+						</div>
+						<div class="form-selection__line line-selection">
+							<label class="line-selection__label" for="selection-comment">Коментар</label>
+							<textarea data-autoheight class="line-selection__input input" name="form[selection-comment]" id="order-comment" placeholder="Ваш коментар" autocomplete="off"></textarea>
+						</div><button type="submit" class="button button button--border-blue">Відправити запит</button>
 					</form>
-
 				</div>
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20230330205506"></script>
+	<script src="js/app.min.js?_v=20230331164410"></script>
 </body>
 
 </html>
