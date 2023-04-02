@@ -1572,10 +1572,6 @@ body::after {
   border: 1px solid #eee;
 }
 
-#map {
-  background: url("../img/icons/loading.gif") center/50px no-repeat;
-}
-
 [class*=-ibg] {
   position: relative;
 }
