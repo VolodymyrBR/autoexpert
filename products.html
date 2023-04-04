@@ -2,7 +2,7 @@
 <html lang="uk">
 
 <head>
-	<title>Контакти</title>
+	<title>Група товарів</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
@@ -60,52 +60,503 @@
 				</div>
 			</div>
 		</header>
-		<main class="contacts">
-			<nav class="contacts__breadcrumbs breadcrumbs">
+		<main class="products">
+			<nav class="products__breadcrumbs breadcrumbs">
 				<div class="breadcrumbs__container">
 					<ul class="breadcrumbs__list">
 						<li class="breadcrumbs__item">
 							<a href="home.html" class="breadcrumbs__link">Головна</a>
 						</li>
 						<li class="breadcrumbs__item">
-							<span class="breadcrumbs__current">Контакти</span>
+							<a href="home.html" class="breadcrumbs__link">Каталог</a>
+						</li>
+						<li class="breadcrumbs__item">
+							<span class="breadcrumbs__current">Про нас</span>
 						</li>
 					</ul>
 				</div>
 			</nav>
-			<section class="contacts__item item-contacts">
-				<div class="item-contacts__container">
-					<h2 class="item-contacts__title title">Контакти</h2>
-					<div class="item-contacts__map">
-						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d316.8791137254857!2d26.258487083383763!3d50.55215798114307!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x472f1399955fda51%3A0xe0d2d52e1efbe2c6!2z0JzQsNCz0LDQt9C40L0g0LfQsNC_0YfQsNGB0YLQuNC9ICLQkNCy0YLQvtCV0LrRgdC_0LXRgNGCIg!5e0!3m2!1suk!2sua!4v1680420905401!5m2!1suk!2sua" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+			<section class="products__item item-products">
+				<div class="item-products__container">
+					<h1 class="item-products__title title">Двигун, паливна система</h1>
+					<div class="item-products__selected-line select-products">
+						<button type="button" class="select-products__btn">Фільтри</button>
+						<div class="select-products__control">
+							<select class="select-products__quantity" name="form[quantity]" data-class-modif="quantity">
+								<option value="1" selected>16</option>
+								<option value="2">24</option>
+								<option value="3">32</option>
+								<option value="4">48</option>
+								<option value="5">64</option>
+							</select>
+							<select class="select-products__sing" name="form[sing]" data-class-modif="sing">
+								<option value="1" selected>За популярністю</option>
+								<option value="2">За порядком</option>
+								<option value="3">За зростанням ціни</option>
+								<option value="4">За зниженням ціни</option>
+								<option value="5">За назвою</option>
+							</select>
+						</div>
 					</div>
-					<div class="item-contacts__contact contact-block">
-						<div class="contact-block__line">
-							<h4 class="contact-block__title">Адреса</h4>
-							<p class="contact-block__link _icon-map-pin">вул. Шевченка, 4, м. Здолбунів, Україна</p>
-						</div>
-						<div class="contact-block__line">
-							<h4 class="contact-block__title">Контактні телефони</h4>
-							<div class="contact-block__phone _icon-phone">
-								<a href="+380979193134" class="contact-block__link">+380 (97) 919-31-34,</a>
-								<a href="+380996113391" class="contact-block__link">+380 (99) 611-33-91</a>
+					<div class="item-products__content">
+						<aside class="item-products__filters filters-product">
+
+
+							<div class="filters-product__price price-filter">
+								<div class="price-filter__title title-filter">Ціна</div>
+								<div class="price-filter__body">
+									<div class="price-filter__value">
+										<div class="price-filter__inputs">
+											<input data-from class="price-filter__input input" value="0" type="text" name="from" id="price-start" autocomplete="off">
+											<input data-to class="price-filter__input input" value="200000" type="text" name="to" id="price-end" autocomplete="off">
+										</div>
+										<button type="submit" class="price-filter__btn">OK</button>
+									</div>
+									<div id="range" class="price-filter__range"></div>
+								</div>
 							</div>
-						</div>
-						<div class="contact-block__line">
-							<h4 class="contact-block__title">Електронна пошта</h4>
-							<a href="avtoshop_2010@ukr.net" class="contact-block__link _icon-mail">avtoshop_2010@ukr.net</a>
-						</div>
-						<div class="contact-block__line">
-							<h4 class="contact-block__title">Меседжери</h4>
-							<div class="contact-block__social">
-								<a href="#" class="_icon-viber"></a>
-								<a href="#" class="_icon-whatsap"></a>
-								<a href="#" class="_icon-telegram"></a>
+
+							<div class="filters-product__brand brand-filter">
+								<div class="brand-filter__title title-filter">Бренд</div>
+								<div class="brand-filter__body">
+									<div class="brand-filter__search">
+										<input class="input" type="search" name="brand" id="brand" placeholder="Пошук">
+									</div>
+									<div class="brand-filter__checkbox checkbox">
+										<input class="checkbox__input" type="checkbox" name="" id="b-1">
+										<label class="checkbox__label" for="b-1">Bosch<span>(54)</span></label>
+									</div>
+									<div class="brand-filter__checkbox checkbox">
+										<input class="checkbox__input" type="checkbox" name="" id="b-2">
+										<label class="checkbox__label" for="b-2">Bosch<span>(54)</span></label>
+									</div>
+									<div class="brand-filter__checkbox checkbox">
+										<input class="checkbox__input" type="checkbox" name="" id="b-3">
+										<label class="checkbox__label" for="b-3">Bosch<span>(54)</span></label>
+									</div>
+									<div class="brand-filter__checkbox checkbox">
+										<input class="checkbox__input" type="checkbox" name="" id="b-4">
+										<label class="checkbox__label" for="b-4">Bosch<span>(54)</span></label>
+									</div>
+									<div class="brand-filter__checkbox checkbox">
+										<input class="checkbox__input" type="checkbox" name="" id="b-5">
+										<label class="checkbox__label" for="b-5">Bosch<span>(54)</span></label>
+									</div>
+									<div class="brand-filter__checkbox checkbox">
+										<input class="checkbox__input" type="checkbox" name="" id="b-6">
+										<label class="checkbox__label" for="b-6">Bosch<span>(54)</span></label>
+									</div>
+									<div class="brand-filter__checkbox checkbox">
+										<input class="checkbox__input" type="checkbox" name="" id="b-7">
+										<label class="checkbox__label" for="b-7">Bosch<span>(54)</span></label>
+									</div>
+
+								</div>
 							</div>
+
+							<div class="filters-product__stockin stockin-filter">
+								<div class="stockin-filter__title title-filter">Наявність</div>
+								<div class="stockin-filter__body">
+									<div class="stockin-filter__checkbox checkbox">
+										<input class="checkbox__input" type="checkbox" name="" id="stockin">
+										<label class="checkbox__label" for="stockin">В
+											наявності<span>(43)</span></label>
+									</div>
+								</div>
+							</div>
+						</aside>
+
+						<div class="item-products__catalog catalog-products">
+							<article class="catalog-products__card product-card _stock-in">
+								<div class="product-card__body">
+									<a href="#" class="product-card__image-ibg">
+										<picture><source data-srcset="img/product/product.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/product/product.png" alt="photo"></picture>
+									</a>
+									<div class="product-card__code code-product">
+										<div class="code-product__item">Код:</div>
+										<div class="code-product__value">ISS20301B</div>
+									</div>
+									<h2 class="product-card__name">
+										<a href="#">Ліхтар габаритний діодний жовтий 24 V Ліхтар габаритний діодний жовтий 24 V
+											(в-во
+											ISSIKSAN)</a>
+									</h2>
+									<div class="product-card__info info ">
+										<ul class="info__availability availability">
+											<li class="availability__in-stock ">В наявності</li>
+											<li class="availability__out-stock ">Немає в наявності</li>
+										</ul>
+										<div class="info__price-block">
+											<div class="info__price">199 грн</div>
+											<button class="info__cart _icon-cart"></button>
+										</div>
+										<button data-popup="#order" class="info__order button">Замовити</button>
+									</div>
+								</div>
+							</article>
+
+							<article class="catalog-products__card product-card _stock-in">
+								<div class="product-card__body">
+									<a href="#" class="product-card__image-ibg">
+										<picture><source data-srcset="img/product/Screenshot_3.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/product/Screenshot_3.jpg" alt="photo"></picture>
+									</a>
+									<div class="product-card__code code-product">
+										<div class="code-product__item">Код:</div>
+										<div class="code-product__value">ISS20301B</div>
+									</div>
+									<h2 class="product-card__name">
+										<a href="#">Ліхтар габаритний діодний жовтий 24 V Ліхтар габаритний діодний жовтий 24 V
+											(в-во
+											ISSIKSAN)</a>
+									</h2>
+									<div class="product-card__info info ">
+										<ul class="info__availability availability">
+											<li class="availability__in-stock ">В наявності</li>
+											<li class="availability__out-stock ">Немає в наявності</li>
+										</ul>
+										<div class="info__price-block">
+											<div class="info__price">199 грн</div>
+											<button class="info__cart _icon-cart"></button>
+										</div>
+										<button data-popup="#order" class="info__order button">Замовити</button>
+									</div>
+								</div>
+							</article>
+
+							<article class="catalog-products__card product-card _stock-out">
+								<div class="product-card__body">
+									<a href="#" class="product-card__image-ibg">
+										<picture><source data-srcset="img/product/product.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/product/product.png" alt="photo"></picture>
+									</a>
+									<div class="product-card__code code-product">
+										<div class="code-product__item">Код:</div>
+										<div class="code-product__value">ISS20301B</div>
+									</div>
+									<h2 class="product-card__name">
+										<a href="#">Ліхтар габаритний діодний жовтий 24 V (в-во ISSIKSAN)</a>
+									</h2>
+									<div class="product-card__info info ">
+										<ul class="info__availability availability">
+											<li class="availability__in-stock ">В наявності</li>
+											<li class="availability__out-stock ">Немає в наявності</li>
+										</ul>
+										<div class="info__price-block">
+											<div class="info__price">199 грн</div>
+											<button class="info__cart _icon-cart"></button>
+										</div>
+										<button data-popup="#order" class="info__order button">Замовити</button>
+									</div>
+								</div>
+							</article>
+
+							<article class="catalog-products__card product-card _stock-in">
+								<div class="product-card__body">
+									<a href="#" class="product-card__image-ibg">
+										<picture><source data-srcset="img/product/product.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/product/product.png" alt="photo"></picture>
+									</a>
+									<div class="product-card__code code-product">
+										<div class="code-product__item">Код:</div>
+										<div class="code-product__value">ISS20301B</div>
+									</div>
+									<h2 class="product-card__name">
+										<a href="#">Ліхтар габаритний діодний жовтий 24 V (в-во ISSIKSAN)</a>
+									</h2>
+									<div class="product-card__info info ">
+										<ul class="info__availability availability">
+											<li class="availability__in-stock ">В наявності</li>
+											<li class="availability__out-stock ">Немає в наявності</li>
+										</ul>
+										<div class="info__price-block">
+											<div class="info__price">56 грн</div>
+											<button class="info__cart _icon-cart"></button>
+										</div>
+										<button data-popup="#order" class="info__order button">Замовити</button>
+									</div>
+								</div>
+							</article>
+
+							<article class="catalog-products__card product-card _stock-in">
+								<div class="product-card__body">
+									<a href="#" class="product-card__image-ibg">
+										<picture><source data-srcset="img/product/Screenshot_2.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/product/Screenshot_2.jpg" alt="photo"></picture>
+									</a>
+									<div class="product-card__code code-product">
+										<div class="code-product__item">Код:</div>
+										<div class="code-product__value">ISS20301B</div>
+									</div>
+									<h2 class="product-card__name">
+										<a href="#">Ліхтар габаритний діодний жовтий 24 V (в-во ISSIKSAN)</a>
+									</h2>
+									<div class="product-card__info info ">
+										<ul class="info__availability availability">
+											<li class="availability__in-stock ">В наявності</li>
+											<li class="availability__out-stock ">Немає в наявності</li>
+										</ul>
+										<div class="info__price-block">
+											<div class="info__price">10300 грн</div>
+											<button class="info__cart _icon-cart"></button>
+										</div>
+										<button data-popup="#order" class="info__order button">Замовити</button>
+									</div>
+								</div>
+							</article>
+
+							<article class="catalog-products__card product-card _stock-out">
+								<div class="product-card__body">
+									<a href="#" class="product-card__image-ibg">
+										<picture><source data-srcset="img/product/Screenshot_2.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/product/Screenshot_2.jpg" alt="photo"></picture>
+									</a>
+									<div class="product-card__code code-product">
+										<div class="code-product__item">Код:</div>
+										<div class="code-product__value">ISS20301B</div>
+									</div>
+									<h2 class="product-card__name">
+										<a href="#">Ліхтар габаритний діодний жовтий 24 V (в-во ISSIKSAN)</a>
+									</h2>
+									<div class="product-card__info info ">
+										<ul class="info__availability availability">
+											<li class="availability__in-stock ">В наявності</li>
+											<li class="availability__out-stock ">Немає в наявності</li>
+										</ul>
+										<div class="info__price-block">
+											<div class="info__price">199 грн</div>
+											<button class="info__cart _icon-cart"></button>
+										</div>
+										<button data-popup="#order" class="info__order button">Замовити</button>
+									</div>
+								</div>
+							</article>
+							<article class="catalog-products__card product-card _stock-in">
+								<div class="product-card__body">
+									<a href="#" class="product-card__image-ibg">
+										<picture><source data-srcset="img/product/product.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/product/product.png" alt="photo"></picture>
+									</a>
+									<div class="product-card__code code-product">
+										<div class="code-product__item">Код:</div>
+										<div class="code-product__value">ISS20301B</div>
+									</div>
+									<h2 class="product-card__name">
+										<a href="#">Ліхтар габаритний діодний жовтий 24 V Ліхтар габаритний діодний жовтий 24 V
+											(в-во
+											ISSIKSAN)</a>
+									</h2>
+									<div class="product-card__info info ">
+										<ul class="info__availability availability">
+											<li class="availability__in-stock ">В наявності</li>
+											<li class="availability__out-stock ">Немає в наявності</li>
+										</ul>
+										<div class="info__price-block">
+											<div class="info__price">199 грн</div>
+											<button class="info__cart _icon-cart"></button>
+										</div>
+										<button data-popup="#order" class="info__order button">Замовити</button>
+									</div>
+								</div>
+							</article>
+
+							<article class="catalog-products__card product-card _stock-in">
+								<div class="product-card__body">
+									<a href="#" class="product-card__image-ibg">
+										<picture><source data-srcset="img/product/Screenshot_3.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/product/Screenshot_3.jpg" alt="photo"></picture>
+									</a>
+									<div class="product-card__code code-product">
+										<div class="code-product__item">Код:</div>
+										<div class="code-product__value">ISS20301B</div>
+									</div>
+									<h2 class="product-card__name">
+										<a href="#">Ліхтар габаритний діодний жовтий 24 V Ліхтар габаритний діодний жовтий 24 V
+											(в-во
+											ISSIKSAN)</a>
+									</h2>
+									<div class="product-card__info info ">
+										<ul class="info__availability availability">
+											<li class="availability__in-stock ">В наявності</li>
+											<li class="availability__out-stock ">Немає в наявності</li>
+										</ul>
+										<div class="info__price-block">
+											<div class="info__price">199 грн</div>
+											<button class="info__cart _icon-cart"></button>
+										</div>
+										<button data-popup="#order" class="info__order button">Замовити</button>
+									</div>
+								</div>
+							</article>
+
+							<article class="catalog-products__card product-card _stock-out">
+								<div class="product-card__body">
+									<a href="#" class="product-card__image-ibg">
+										<picture><source data-srcset="img/product/product.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/product/product.png" alt="photo"></picture>
+									</a>
+									<div class="product-card__code code-product">
+										<div class="code-product__item">Код:</div>
+										<div class="code-product__value">ISS20301B</div>
+									</div>
+									<h2 class="product-card__name">
+										<a href="#">Ліхтар габаритний діодний жовтий 24 V (в-во ISSIKSAN)</a>
+									</h2>
+									<div class="product-card__info info ">
+										<ul class="info__availability availability">
+											<li class="availability__in-stock ">В наявності</li>
+											<li class="availability__out-stock ">Немає в наявності</li>
+										</ul>
+										<div class="info__price-block">
+											<div class="info__price">199 грн</div>
+											<button class="info__cart _icon-cart"></button>
+										</div>
+										<button data-popup="#order" class="info__order button">Замовити</button>
+									</div>
+								</div>
+							</article>
+
+							<article class="catalog-products__card product-card _stock-in">
+								<div class="product-card__body">
+									<a href="#" class="product-card__image-ibg">
+										<picture><source data-srcset="img/product/product.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/product/product.png" alt="photo"></picture>
+									</a>
+									<div class="product-card__code code-product">
+										<div class="code-product__item">Код:</div>
+										<div class="code-product__value">ISS20301B</div>
+									</div>
+									<h2 class="product-card__name">
+										<a href="#">Ліхтар габаритний діодний жовтий 24 V (в-во ISSIKSAN)</a>
+									</h2>
+									<div class="product-card__info info ">
+										<ul class="info__availability availability">
+											<li class="availability__in-stock ">В наявності</li>
+											<li class="availability__out-stock ">Немає в наявності</li>
+										</ul>
+										<div class="info__price-block">
+											<div class="info__price">199 грн</div>
+											<button class="info__cart _icon-cart"></button>
+										</div>
+										<button data-popup="#order" class="info__order button">Замовити</button>
+									</div>
+								</div>
+							</article>
+
+							<article class="catalog-products__card product-card _stock-in">
+								<div class="product-card__body">
+									<a href="#" class="product-card__image-ibg">
+										<picture><source data-srcset="img/product/Screenshot_2.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/product/Screenshot_2.jpg" alt="photo"></picture>
+									</a>
+									<div class="product-card__code code-product">
+										<div class="code-product__item">Код:</div>
+										<div class="code-product__value">ISS20301B</div>
+									</div>
+									<h2 class="product-card__name">
+										<a href="#">Ліхтар габаритний діодний жовтий 24 V (в-во ISSIKSAN)</a>
+									</h2>
+									<div class="product-card__info info ">
+										<ul class="info__availability availability">
+											<li class="availability__in-stock ">В наявності</li>
+											<li class="availability__out-stock ">Немає в наявності</li>
+										</ul>
+										<div class="info__price-block">
+											<div class="info__price">10300 грн</div>
+											<button class="info__cart _icon-cart"></button>
+										</div>
+										<button data-popup="#order" class="info__order button">Замовити</button>
+									</div>
+								</div>
+							</article>
+
+							<article class="catalog-products__card product-card _stock-out">
+								<div class="product-card__body">
+									<a href="#" class="product-card__image-ibg">
+										<picture><source data-srcset="img/product/Screenshot_2.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/product/Screenshot_2.jpg" alt="photo"></picture>
+									</a>
+									<div class="product-card__code code-product">
+										<div class="code-product__item">Код:</div>
+										<div class="code-product__value">ISS20301B</div>
+									</div>
+									<h2 class="product-card__name">
+										<a href="#">Ліхтар габаритний діодний жовтий 24 V (в-во ISSIKSAN)</a>
+									</h2>
+									<div class="product-card__info info ">
+										<ul class="info__availability availability">
+											<li class="availability__in-stock ">В наявності</li>
+											<li class="availability__out-stock ">Немає в наявності</li>
+										</ul>
+										<div class="info__price-block">
+											<div class="info__price">199 грн</div>
+											<button class="info__cart _icon-cart"></button>
+										</div>
+										<button data-popup="#order" class="info__order button">Замовити</button>
+									</div>
+								</div>
+							</article>
+							<article class="catalog-products__card product-card _stock-out">
+								<div class="product-card__body">
+									<a href="#" class="product-card__image-ibg">
+										<picture><source data-srcset="img/product/Screenshot_2.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/product/Screenshot_2.jpg" alt="photo"></picture>
+									</a>
+									<div class="product-card__code code-product">
+										<div class="code-product__item">Код:</div>
+										<div class="code-product__value">ISS20301B</div>
+									</div>
+									<h2 class="product-card__name">
+										<a href="#">Ліхтар габаритний діодний жовтий 24 V (в-во ISSIKSAN)</a>
+									</h2>
+									<div class="product-card__info info ">
+										<ul class="info__availability availability">
+											<li class="availability__in-stock ">В наявності</li>
+											<li class="availability__out-stock ">Немає в наявності</li>
+										</ul>
+										<div class="info__price-block">
+											<div class="info__price">199 грн</div>
+											<button class="info__cart _icon-cart"></button>
+										</div>
+										<button data-popup="#order" class="info__order button">Замовити</button>
+									</div>
+								</div>
+							</article>
+							<article class="catalog-products__card product-card _stock-out">
+								<div class="product-card__body">
+									<a href="#" class="product-card__image-ibg">
+										<picture><source data-srcset="img/product/Screenshot_2.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/product/Screenshot_2.jpg" alt="photo"></picture>
+									</a>
+									<div class="product-card__code code-product">
+										<div class="code-product__item">Код:</div>
+										<div class="code-product__value">ISS20301B</div>
+									</div>
+									<h2 class="product-card__name">
+										<a href="#">Ліхтар габаритний діодний жовтий 24 V (в-во ISSIKSAN)</a>
+									</h2>
+									<div class="product-card__info info ">
+										<ul class="info__availability availability">
+											<li class="availability__in-stock ">В наявності</li>
+											<li class="availability__out-stock ">Немає в наявності</li>
+										</ul>
+										<div class="info__price-block">
+											<div class="info__price">199 грн</div>
+											<button class="info__cart _icon-cart"></button>
+										</div>
+										<button data-popup="#order" class="info__order button">Замовити</button>
+									</div>
+								</div>
+							</article>
 						</div>
 					</div>
 				</div>
 			</section>
+			<div class="products__footer footer-products">
+				<div class="footer-products__container">
+					<a href="#" class="footer-products__refresh _icon-refresh">Показати ще</a>
+					<div class="footer-products__pagging pagging">
+						<button disabled type="button" class="pagging__arrow pagging__arrow--left _icon-arrow"></button>
+						<ul class="pagging__list">
+							<li class="pagging__item"><a href="#">1</a></li>
+							<li class="pagging__item _active"><a href="#">2</a></li>
+							<li class="pagging__item"><a href="#">3</a></li>
+							<li class="pagging__item"><a href="#">4</a></li>
+							<li class="pagging__item"><a href="#">...</a></li>
+							<li class="pagging__item"><a href="#">24</a></li>
+						</ul>
+						<button type="button" class="pagging__arrow pagging__arrow--right _icon-arrow"></button>
+					</div>
+				</div>
+			</div>
+			<button type="button" data-lp class="products__button button-up _icon-arrow"></button>
 		</main>
 		<footer class="footer">
 			<div class="footer__container">
