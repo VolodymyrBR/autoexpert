@@ -6984,36 +6984,35 @@
         response.forEach((response => {
             if ("" === response.textContent.trim()) response.style.display = "none";
         }));
-        window.onscroll = function() {
-            scrollFunction();
-        };
-        function scrollFunction() {
-            var scrollToTopBtn = document.querySelector(".button-up");
-            var scrolled = document.documentElement.scrollTop;
-            if (scrolled > 200) scrollToTopBtn.style.display = "block"; else scrollToTopBtn.style.display = "none";
+        var scrollToTopBtn = document.querySelector(".button-up");
+        if (scrollToTopBtn) {
+            scrollToTopBtn.addEventListener("click", (function(event) {
+                event.preventDefault();
+                var top = 0;
+                var duration = 1e3;
+                var start = window.pageYOffset;
+                var distance = top - start;
+                var startTime = null;
+                function ease(t, b, c, d) {
+                    t /= d / 2;
+                    if (t < 1) return c / 2 * t * t + b;
+                    t--;
+                    return -c / 2 * (t * (t - 2) - 1) + b;
+                }
+                function step(currentTime) {
+                    if (null === startTime) startTime = currentTime;
+                    var timeElapsed = currentTime - startTime;
+                    var run = ease(timeElapsed, start, distance, duration);
+                    window.scrollTo(0, run);
+                    if (timeElapsed < duration) requestAnimationFrame(step);
+                }
+                requestAnimationFrame(step);
+            }));
+            window.onscroll = function() {
+                var scrolled = document.documentElement.scrollTop;
+                if (scrolled > 200) scrollToTopBtn.style.display = "block"; else scrollToTopBtn.style.display = "none";
+            };
         }
-        document.querySelector(".button-up").addEventListener("click", (function(event) {
-            event.preventDefault();
-            var top = 0;
-            var duration = 1e3;
-            var start = window.pageYOffset;
-            var distance = top - start;
-            var startTime = null;
-            function step(currentTime) {
-                if (null === startTime) startTime = currentTime;
-                var timeElapsed = currentTime - startTime;
-                var run = ease(timeElapsed, start, distance, duration);
-                window.scrollTo(0, run);
-                if (timeElapsed < duration) requestAnimationFrame(step);
-            }
-            function ease(t, b, c, d) {
-                t /= d / 2;
-                if (t < 1) return c / 2 * t * t + b;
-                t--;
-                return -c / 2 * (t * (t - 2) - 1) + b;
-            }
-            requestAnimationFrame(step);
-        }));
         const fileInput = document.querySelector(".line-upload__file");
         const selectedFileName = document.querySelector(".line-upload__file-name");
         fileInput.addEventListener("change", (function() {
@@ -7024,15 +7023,17 @@
         }));
         const script_button = document.querySelector(".select-products__btn");
         const filters = document.querySelector(".item-products__filters");
-        script_button.addEventListener("click", (() => {
-            if (window.innerWidth >= 1050) return;
-            filters.classList.toggle("_filter-active");
-        }));
-        document.addEventListener("click", (event => {
-            const target = event.target;
-            const isClickInside = filters.contains(target) || script_button.contains(target);
-            if (!isClickInside) filters.classList.remove("_filter-active");
-        }));
+        if (script_button && filters) {
+            script_button.addEventListener("click", (() => {
+                if (window.innerWidth >= 1050) return;
+                filters.classList.toggle("_filter-active");
+            }));
+            document.addEventListener("click", (event => {
+                const target = event.target;
+                const isClickInside = filters.contains(target) || script_button.contains(target);
+                if (!isClickInside) filters.classList.remove("_filter-active");
+            }));
+        }
         window["FLS"] = true;
         isWebp();
         addTouchClass();

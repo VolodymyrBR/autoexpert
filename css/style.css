@@ -704,6 +704,8 @@ textarea.input {
           flex: 0 0 1.5rem;
   position: relative;
   cursor: pointer;
+  border: 0.0625rem solid #A6A6A6;
+  border-radius: 0.125rem;
 }
 
 .quantity__button::before,
@@ -1667,11 +1669,6 @@ body::after {
   color: #626262;
 }
 
-.popup--cart-full .quantity__button {
-  border: 1px solid #A6A6A6;
-  border-radius: 2px;
-}
-
 .popup--cart-full .footer-cart {
   display: -ms-grid;
   display: grid;
@@ -1799,11 +1796,6 @@ body::after {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
-}
-
-.popup--order .quantity__button {
-  border: 0.0625rem solid #A6A6A6;
-  border-radius: 0.125rem;
 }
 
 .popup--order-confirmation .order-confirmation {
@@ -2529,6 +2521,7 @@ body::after {
 .breadcrumbs {
   padding-top: 9.625rem;
   padding-bottom: 1.25rem;
+  font-weight: 400;
 }
 
 .breadcrumbs__list {
@@ -2550,8 +2543,8 @@ body::after {
 .breadcrumbs__item:not(:last-child)::after {
   content: "";
   position: absolute;
-  width: 0.625rem;
-  height: 0.625rem;
+  width: 0.5rem;
+  height: 0.5rem;
   right: -0.9375rem;
   border-top: 0.125rem solid #626262;
   border-right: 0.125rem solid #626262;
@@ -4322,11 +4315,11 @@ body::after {
   }
 
   .breadcrumbs {
-    font-size: 1.125rem;
+    font-size: 1rem;
   }
 
   .breadcrumbs__item:not(:last-child)::after {
-    top: 0.4375rem;
+    top: 0.375rem;
   }
 
   .action-header__contact {
@@ -4658,6 +4651,12 @@ body::after {
     -webkit-box-flex: 0;
         -ms-flex: 0 1 25%;
             flex: 0 1 25%;
+  }
+
+  .catalog-products__card {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 33.333%;
+            flex: 0 1 33.333%;
   }
 }
 
@@ -5366,8 +5365,8 @@ body::after {
 
   .catalog-products__card {
     -webkit-box-flex: 0;
-        -ms-flex: 0 1 33.333%;
-            flex: 0 1 33.333%;
+        -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
   }
 }
 
@@ -5425,14 +5424,6 @@ body::after {
   }
 }
 
-@media (max-width: 37.5em) {
-  .catalog-products__card {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 50%;
-            flex: 0 0 50%;
-  }
-}
-
 @media (max-width: 34.375em) {
   .header__top {
     -webkit-box-pack: justify;
@@ -5468,12 +5459,6 @@ body::after {
   .popup--popup-selection .line-upload__file-info {
     -ms-grid-column-span: 1;
     grid-column: span 1;
-  }
-
-  .catalog-products__card {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 100%;
-            flex: 0 0 100%;
   }
 }
 
@@ -5541,6 +5526,12 @@ body::after {
   .catalog__category {
     -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
+  }
+
+  .catalog-products__card {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
   }
 }
 
@@ -5787,27 +5778,27 @@ body::after {
     }
 }
 
-@supports (font-size: clamp( 0.875rem , 0.8186619718rem  +  0.2816901408vw , 1.125rem )) {
+@supports (font-size: clamp( 0.875rem , 0.8468309859rem  +  0.1408450704vw , 1rem )) {
     .breadcrumbs {
-      font-size: clamp( 0.875rem , 0.8186619718rem  +  0.2816901408vw , 1.125rem );
+      font-size: clamp( 0.875rem , 0.8468309859rem  +  0.1408450704vw , 1rem );
     }
 }
 
-@supports not (font-size: clamp( 0.875rem , 0.8186619718rem  +  0.2816901408vw , 1.125rem )) {
+@supports not (font-size: clamp( 0.875rem , 0.8468309859rem  +  0.1408450704vw , 1rem )) {
     .breadcrumbs {
-      font-size: calc(0.875rem + 0.25 * (100vw - 20rem) / 88.75);
+      font-size: calc(0.875rem + 0.125 * (100vw - 20rem) / 88.75);
     }
 }
 
-@supports (top: clamp( 0.3125rem , 0.2843309859rem  +  0.1408450704vw , 0.4375rem )) {
+@supports (top: clamp( 0.3125rem , 0.298415493rem  +  0.0704225352vw , 0.375rem )) {
     .breadcrumbs__item:not(:last-child)::after {
-      top: clamp( 0.3125rem , 0.2843309859rem  +  0.1408450704vw , 0.4375rem );
+      top: clamp( 0.3125rem , 0.298415493rem  +  0.0704225352vw , 0.375rem );
     }
 }
 
-@supports not (top: clamp( 0.3125rem , 0.2843309859rem  +  0.1408450704vw , 0.4375rem )) {
+@supports not (top: clamp( 0.3125rem , 0.298415493rem  +  0.0704225352vw , 0.375rem )) {
     .breadcrumbs__item:not(:last-child)::after {
-      top: calc(0.3125rem + 0.125 * (100vw - 20rem) / 88.75);
+      top: calc(0.3125rem + 0.0625 * (100vw - 20rem) / 88.75);
     }
 }
 
