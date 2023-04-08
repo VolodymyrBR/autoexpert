@@ -9381,8 +9381,8 @@ PERFORMANCE OF THIS SOFTWARE.
             }));
         }
         const script_form = document.querySelector(".response-informations");
-        const error = script_form.querySelector(".response-informations__error");
-        script_form.addEventListener("submit", (event => {
+        const error = script_form ? script_form.querySelector(".response-informations__error") : null;
+        if (script_form && error) script_form.addEventListener("submit", (event => {
             const checkboxes = script_form.querySelectorAll('input[type="checkbox"]');
             let checked = false;
             for (let i = 0; i < checkboxes.length; i++) if (checkboxes[i].checked) {
