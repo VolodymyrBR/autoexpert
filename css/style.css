@@ -373,6 +373,10 @@ textarea {
   border-color: #2E7FDE;
 }
 
+.touch .input._form-focus {
+  border-color: #2E7FDE;
+}
+
 .input._form-error {
   border-color: #DE4444;
 }
