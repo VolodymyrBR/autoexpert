@@ -2618,8 +2618,19 @@
                 let error = 0;
                 let formRequiredItems = form.querySelectorAll("*[data-required]");
                 if (formRequiredItems.length) formRequiredItems.forEach((formRequiredItem => {
-                    if ((null !== formRequiredItem.offsetParent || "SELECT" === formRequiredItem.tagName) && !formRequiredItem.disabled) error += this.validateInput(formRequiredItem);
+                    if ((null !== formRequiredItem.offsetParent || "SELECT" === formRequiredItem.tagName) && !formRequiredItem.disabled) if ("checkbox" === formRequiredItem.type && !formRequiredItem.checked) {
+                        this.addError(formRequiredItem);
+                        error++;
+                    } else error += this.validateInput(formRequiredItem);
                 }));
+                let formCheckboxItems = form.querySelectorAll('input[type="checkbox"]');
+                if (formCheckboxItems.length) {
+                    let formCheckboxItemsChecked = Array.from(formCheckboxItems).filter((formCheckboxItem => formCheckboxItem.checked));
+                    if (0 === formCheckboxItemsChecked.length) {
+                        this.addError(formCheckboxItems[0]);
+                        error++;
+                    } else this.removeError(formCheckboxItems[0]);
+                }
                 return error;
             },
             validateInput(formRequiredItem) {
@@ -9248,20 +9259,6 @@ PERFORMANCE OF THIS SOFTWARE.
                 if (!isClickInside) filters.classList.remove("_filter-active");
             }));
         }
-        const formRespons = document.querySelector(".response-informations");
-        const error = formRespons ? formRespons.querySelector(".response-informations__error") : null;
-        if (formRespons && error) formRespons.addEventListener("submit", (event => {
-            const checkboxes = formRespons.querySelectorAll('input[type="checkbox"]');
-            let checked = false;
-            for (let i = 0; i < checkboxes.length; i++) if (checkboxes[i].checked) {
-                checked = true;
-                break;
-            }
-            if (!checked) {
-                event.preventDefault();
-                error.style.display = "block";
-            }
-        }));
         window["FLS"] = true;
         isWebp();
         addTouchClass();

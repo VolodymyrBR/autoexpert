@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230410200724">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230410212634">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -272,7 +272,7 @@
 						</div>
 						<div class="response-informations__form-line form-line">
 							<label class="form-line__label" for="order-name">Ім'я<span>*</span></label>
-							<input class="form-line__input input" type="text" data-error="Введіть Ваше ім'я" name="form[response-name]" id="response-name" placeholder="Ім'я" data-required autocomplete="off">
+							<input class="form-line__input input" type="text" data-error="Введіть Ваше ім'я" name="form[response-name]" id="response-name" placeholder="Ім'я" data-required data-validate autocomplete="off">
 						</div>
 						<div class="response-informations__form-line form-line">
 							<label class="form-line__label" for="order-comment">Можете написати Ваш коментар</label>
@@ -280,7 +280,7 @@
 						</div>
 						<div class="response-informations__emoji-cool cool-emoji">
 							<div class="cool-emoji__checkbox checkbox checkbox--emoji">
-								<input id="emoji_1" data-error="Помилка" class="checkbox__input" type="checkbox" value="1" name="form[]">
+								<input id="emoji_1" data-error="Хоча б один критерій має бути вибраний" class="checkbox__input" type="checkbox" value="1" name="form[]">
 								<label for="emoji_1" class="checkbox__label"><span class="checkbox__text">Гарне
 										обслуговування</span></label>
 							</div>
@@ -348,7 +348,6 @@
 										продавець</span></label>
 							</div>
 						</div>
-						<div class="response-informations__error">Хоча б один критерій має бути вибраний</div>
 						<button type="submit" class="response-informations__button button button--border-blue">Надіслати
 							відгук</button>
 					</form>
@@ -1663,14 +1662,14 @@
 		<div class="popup__wrapper">
 			<div class="popup__content">
 				<div class="confirmation">
-					<div class="confirmation__title title title--blue">Дякуємо за ваш відгук!</div>
-					<p>Ваш відгук допомагає нам розвиватися!</p>
+					<div class="confirmation__title title title--blue">Дякуємо за Ваш відгук!</div>
+					<!-- <p>Ваш відгук допомагає нам розвиватися!</p> -->
 					<button data-close type="button" class="confirmation__button button button--blue">Повернутися</button>
 				</div>
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20230410200724"></script>
+	<script src="js/app.min.js?_v=20230410212634"></script>
 </body>
 
 </html>
