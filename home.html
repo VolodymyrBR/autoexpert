@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230410212634">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230421230718">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,13 +17,13 @@
 		<header data-scroll="100" data-scroll-show="500" class="header" data-lp>
 			<div class="header__container">
 				<div class="header__top top-header">
-					<a href="#" class="top-header__logo"><img src="img/Logo.svg" alt="logo"></a>
+					<a href="home.html" class="top-header__logo"><img src="img/Logo.svg" alt="logo"></a>
 					<div data-da=".menu__body,550,0" class="top-header__search search-header">
 						<div class="search-header__field">
-							<input class="search-header__input input" type="text" name="search" id="search" placeholder="Я шукаю..." autocomplete="off">
+							<input class="search-header__input input" type="search" name="search" id="search" placeholder="Я шукаю..." autocomplete="off">
 							<button type="submit" class="search-header__btn _icon-search"></button>
 						</div>
-						<div id="search-results" class="search-header__result">
+						<div id="search-results" class="search-header__result result-search">
 							<ul>
 								<li><a href="#">Ліхтар габаритний</a></li>
 								<li><a href="#">Ліхтар габаритний діодний</a></li>
@@ -930,7 +930,8 @@
 					<div class="content-cart__footer footer-cart">
 						<div class="footer-cart__total">До оплати без доставки: </div>
 						<div class="footer-cart__value">1990 грн</div>
-						<button type="button" class="footer-cart__btn button button--blue">Оформити замовлення</button>
+						<button data-popup="#placing-order" type="button" class="footer-cart__btn button button--blue">Оформити
+							замовлення</button>
 					</div>
 				</div>
 			</div>
@@ -961,21 +962,21 @@
 								<button data-quantity-plus type="button" class="quantity__button quantity__button_plus"></button>
 							</div>
 						</div>
-						<div class="form-order__line line-order">
-							<label class="line-order__label" for="order-tel">Номер телефону <span>*</span></label>
-							<input class="line-order__input input" data-validate data-required type="tel" data-error="Введіть номер телефону" name="form[order-tel]" id="order-tel" placeholder="+380 (__) ___-__-__" autocomplete="off">
+						<div class="form-order__line form-line">
+							<label class="form-line__label" for="order-tel">Номер телефону <span>*</span></label>
+							<input class="form-line__input input" data-validate data-required type="tel" data-error="Введіть номер телефону" name="form[order-tel]" id="order-tel" placeholder="+380 (__) ___-__-__" autocomplete="off">
 						</div>
-						<div class="form-order__line line-order">
-							<label class="line-order__label" for="order-name">Ім'я<span>*</span></label>
-							<input class="line-order__input input" data-validate data-required type="text" data-error="Введіть Ваше ім'я" name="form[order-name]" id="order-name" placeholder="Ім'я" autocomplete="off">
+						<div class="form-order__line form-line">
+							<label class="form-line__label" for="order-name">Ім'я<span>*</span></label>
+							<input class="form-line__input input" data-validate data-required type="text" data-error="Введіть Ваше ім'я" name="form[order-name]" id="order-name" placeholder="Ім'я" autocomplete="off">
 						</div>
-						<div class="form-order__line line-order">
-							<label class="line-order__label" for="order-second-name">Прізвище<span>*</span></label>
-							<input class="line-order__input input" data-validate data-required type="text" data-error="Введіть Ваше прізвище" name="form[order-second-name]" id="order-second-name" placeholder="Прізвище" autocomplete="off">
+						<div class="form-order__line form-line">
+							<label class="form-line__label" for="order-second-name">Прізвище<span>*</span></label>
+							<input class="form-line__input input" data-validate data-required type="text" data-error="Введіть Ваше прізвище" name="form[order-second-name]" id="order-second-name" placeholder="Прізвище" autocomplete="off">
 						</div>
-						<div class="form-order__line line-order">
-							<label class="line-order__label" for="order-comment">Коментар</label>
-							<textarea data-autoheight class="line-order__input input" name="form[order-comment]" id="order-comment" placeholder="Ваш коментар"></textarea>
+						<div class="form-order__line form-line">
+							<label class="form-line__label" for="order-comment">Коментар</label>
+							<textarea data-autoheight class="form-line__input input" name="form[order-comment]" id="order-comment" placeholder="Ваш коментар"></textarea>
 						</div>
 						<button type="submit" class="button button button--border-blue">Замовити</button>
 					</form>
@@ -1005,15 +1006,15 @@
 				<div class="popup-selection">
 					<form data-dev data-goto-error data-popup-message="#popup-selection-confirmation" class="popup-selection__form form-selection" action="files/sendmail/sendmail.php" method="POST">
 						<div class="form-selection__title title title--blue">Підбір запчастин</div>
-						<div class="form-selection__line line-selection">
-							<label for="vin" class="line-selection__label">Ведіть
+						<div class="form-selection__line form-line">
+							<label for="vin" class="form-line__label">Ведіть
 								дані автомобіля <span>*</span></label>
-							<input data-autoheight class="line-selection__input input" type="text" name="form[vin]" id="vin" data-required data-validate autocomplete="off" placeholder="Введіть VIN-код або державний номер автомобіля" data-error="Введіть VIN-код або державний номер автомобіля">
+							<input data-autoheight class="form-line__input input" type="text" name="form[vin]" id="vin" data-required data-validate autocomplete="off" placeholder="Введіть VIN-код або державний номер автомобіля" data-error="Введіть VIN-код або державний номер автомобіля">
 						</div>
-						<div class="form-selection__line line-selection">
-							<label for="parts" class="line-selection__label">Вкажіть
+						<div class="form-selection__line form-line">
+							<label for="parts" class="form-line__label">Вкажіть
 								потрібну запчастину<span>*</span></label>
-							<textarea data-autoheight class="line-selection__input input" name="form[parts]" id="parts" data-required data-validate placeholder="Перерахуйте необхідні запчастини, їх кількість і сторону розташування" data-error="Вкажіть потрібні для вас деталі"></textarea>
+							<textarea data-autoheight class="form-line__input input" name="form[parts]" id="parts" data-required data-validate placeholder="Перерахуйте необхідні запчастини, їх кількість і сторону розташування" data-error="Вкажіть потрібні для вас деталі"></textarea>
 						</div>
 						<div class="form-selection__line line-upload">
 							<label for="file" class="line-upload__file-upload _icon-paperclip">Прикріпити файл</label>
@@ -1022,25 +1023,25 @@
 							<div class="line-upload__file-info">Тут Ви можете прикріпити фото технічного паспорта або фото
 								запчастин у форматі .jpeg, .jpg, .png</div>
 						</div>
-						<div class="form-selection__line line-selection">
-							<label class="line-selection__label" for="selection-tel">Номер телефону <span>*</span></label>
-							<input class="line-selection__input input" data-required data-validate type="tel" placeholder="+380 (__) ___-__-__" data-error="Введіть номер телефону" name="form[selection-tel]" id="selection-tel" autocomplete="off">
+						<div class="form-selection__line form-line">
+							<label class="form-line__label" for="selection-tel">Номер телефону <span>*</span></label>
+							<input class="form-line__input input" data-required data-validate type="tel" placeholder="+380 (__) ___-__-__" data-error="Введіть номер телефону" name="form[selection-tel]" id="selection-tel" autocomplete="off">
 						</div>
-						<div class="form-selection__line line-selection">
-							<label class="line-selection__label" for="selection-name">Ім'я<span>*</span></label>
-							<input class="line-selection__input input" data-required data-validate type="text" data-error="Введіть Ваше ім'я" name="form[selection-name]" id="selection-name" placeholder="Ім'я" autocomplete="off">
+						<div class="form-selection__line form-line">
+							<label class="form-line__label" for="selection-name">Ім'я<span>*</span></label>
+							<input class="form-line__input input" data-required data-validate type="text" data-error="Введіть Ваше ім'я" name="form[selection-name]" id="selection-name" placeholder="Ім'я" autocomplete="off">
 						</div>
-						<div class="form-selection__line line-selection">
-							<label class="line-selection__label" for="selection-second-name">Прізвище<span>*</span></label>
-							<input class="line-selection__input input" data-required data-validate type="text" data-error="Введіть Ваше прізвище" name="form[selection-second-name]" id="selection-second-name" placeholder="Прізвище" autocomplete="off">
+						<div class="form-selection__line form-line">
+							<label class="form-line__label" for="selection-second-name">Прізвище<span>*</span></label>
+							<input class="form-line__input input" data-required data-validate type="text" data-error="Введіть Ваше прізвище" name="form[selection-second-name]" id="selection-second-name" placeholder="Прізвище" autocomplete="off">
 						</div>
-						<div class="form-selection__line line-selection">
-							<label class="line-selection__label" for="selection-mail">E-mail адреса<span>*</span></label>
-							<input class="line-selection__input input" data-required="email" data-validate type="email" data-error="Невірно введена E-mail адреса" name="form[selection-mail]" id="selection-mail" placeholder="E-mail" autocomplete="off">
+						<div class="form-selection__line form-line">
+							<label class="form-line__label" for="selection-mail">E-mail адреса<span>*</span></label>
+							<input class="form-line__input input" data-required="email" data-validate type="email" data-error="Невірно введена E-mail адреса" name="form[selection-mail]" id="selection-mail" placeholder="E-mail" autocomplete="off">
 						</div>
-						<div class="form-selection__line line-selection">
-							<label class="line-selection__label" for="selection-comment">Коментар</label>
-							<textarea data-autoheight class="line-selection__input input" name="form[selection-comment]" id="selection-comment" placeholder="Ваш коментар"></textarea>
+						<div class="form-selection__line form-line">
+							<label class="form-line__label" for="selection-comment">Коментар</label>
+							<textarea data-autoheight class="form-line__input input" name="form[selection-comment]" id="selection-comment" placeholder="Ваш коментар"></textarea>
 						</div><button type="submit" class="button button button--border-blue">Відправити запит</button>
 					</form>
 				</div>
@@ -1393,7 +1394,451 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20230410212634"></script>
+
+	<div id="placing-order" aria-hidden="true" class="popup popup--placing-order">
+		<div class=" popup__wrapper">
+			<div class="popup__content placing-order">
+				<div class="placing-order__header">
+					<button data-close type="button" class="placing-order__close _icon-arrow"></button>
+					<div class="placing-order__logo">
+						<img src="img/Logo.svg" alt="logo">
+					</div>
+				</div>
+				<div class="placing-order__title title">Оформлення замовлення</div>
+				<form data-goto-error data-dev data-popup-message="#placing-order-confirmation" action="files/sendmail/sendmail.php" method="getT" class="placing-order__form">
+					<div class="placing-order__delivery delivery">
+						<div class="delivery__contacts contacts-delivery">
+							<div class="contacts-delivery__title">Контактні дані</div>
+							<div class="contacts-delivery__line form-line">
+								<label class="form-line__label" for="order-tel">Номер телефону <span>*</span></label>
+								<input class="form-line__input input" data-validate data-required type="tel" data-error="Введіть номер телефону" name="form[delivery-tel]" id="delivery-tel" placeholder="+380 (__) ___-__-__" autocomplete="off">
+							</div>
+							<div class="contacts-delivery__line form-line">
+								<label class="form-line__label" for="order-name">Ім'я<span>*</span></label>
+								<input class="form-line__input input" data-validate data-required type="text" data-error="Введіть Ваше ім'я" name="form[delivery-name]" id="delivery-name" placeholder="Ім'я" autocomplete="off">
+							</div>
+							<div class="contacts-delivery__line form-line">
+								<label class="form-line__label" for="order-second-name">Прізвище<span>*</span></label>
+								<input class="form-line__input input" data-validate data-required type="text" data-error="Введіть Ваше прізвище" name="form[delivery-second-name]" id="delivery-second-name" placeholder="Прізвище" autocomplete="off">
+							</div>
+							<div class="contacts-delivery__line form-line">
+								<label class="form-line__label" for="selection-mail">E-mail адреса<span>*</span></label>
+								<input class="form-line__input input" data-required="email" data-validate type="email" data-error="Невірно введена E-mail адреса" name="form[delivery-mail]" id="delivery-mail" placeholder="E-mail" autocomplete="off">
+							</div>
+						</div>
+						<div class="delivery__service service-delivery">
+							<div class="service-delivery__title">Доставка</div>
+							<div class="service-delivery__options options">
+								<div class="options__item">
+									<input id="o_1" class="options__input" type="radio" value="1" name="option">
+									<label for="o_1" class="options__label"><span class="options__text">Нова Пошта</span></label>
+									<div class="options__body body-service">
+										<div class="body-service__label">від 95 грн</div>
+										<div data-tabs class="body-service__tabs">
+											<nav data-tabs-titles class="body-service__navigation">
+												<button type="button" class="body-service__title _tab-active">Відділення</button>
+												<button type="button" class="body-service__title">Поштомат</button>
+												<button type="button" class="body-service__title">Адреса</button>
+											</nav>
+											<div data-tabs-body class="body-service__content">
+												<div class="department">
+													<div class="department__town form-line">
+														<input class="form-line__input input" data-validate data-required type="search" data-error="Введіть населений пункт" name="form[department-town]" id="department-town" placeholder="Населений пункт" autocomplete="off" data-search>
+														<!-- <div data-search-results class="form-line__result result-search">
+														<ul>
+															<li><a href="#">Ліхтар габаритний</a></li>
+															<li><a href="#">Ліхтар габаритний діодний</a></li>
+															<li><a href="#">Ліхтар габаритний діодний жовтий</a></li>
+															<li><a href="#">Ліхтар габаритний діодний жовтий 24 V</a></li>
+															<li><a href="#">Ліхтар габаритний діодний жовтий 24 V (в-во ISSIKSAN)</a>
+															</li>
+															<li><a href="#">Ліхтар габаритний діодний жовтий</a></li>
+															<li><a href="#">Ліхтар габаритний діодний жовтий 24 V</a></li>
+															<li><a href="#">Ліхтар габаритний діодний жовтий 24 V (в-во ISSIKSAN)</a>
+															</li>
+															<li><a href="#">Ліхтар габаритний діодний жовтий</a></li>
+															<li><a href="#">Ліхтар габаритний діодний жовтий 24 V</a></li>
+															<li><a href="#">Ліхтар габаритний діодний жовтий 24 V (в-во ISSIKSAN)</a>
+															</li>
+														</ul>
+													</div> -->
+													</div>
+													<div class="department__number form-line">
+														<input class="form-line__input input" data-validate data-required type="search" data-error="Виберіть відділення" name="form[department-number]" id="department-number" placeholder="Відділення" autocomplete="off">
+														<!-- <div data-search-results class="form-line__result result-search">
+														<ul>
+															<li><a href="#">Ліхтар габаритний</a></li>
+															<li><a href="#">Ліхтар габаритний діодний</a></li>
+															<li><a href="#">Ліхтар габаритний діодний жовтий</a></li>
+															<li><a href="#">Ліхтар габаритний діодний жовтий 24 V</a></li>
+															<li><a href="#">Ліхтар габаритний діодний жовтий 24 V (в-во ISSIKSAN)</a>
+															</li>
+															<li><a href="#">Ліхтар габаритний діодний жовтий</a></li>
+															<li><a href="#">Ліхтар габаритний діодний жовтий 24 V</a></li>
+															<li><a href="#">Ліхтар габаритний діодний жовтий 24 V (в-во ISSIKSAN)</a>
+															</li>
+															<li><a href="#">Ліхтар габаритний діодний жовтий</a></li>
+															<li><a href="#">Ліхтар габаритний діодний жовтий 24 V</a></li>
+															<li><a href="#">Ліхтар габаритний діодний жовтий 24 V (в-во ISSIKSAN)</a>
+															</li>
+														</ul>
+													</div> -->
+													</div>
+													<div class="department__checkbox checkbox checkbox--department">
+														<input id="c_1" class="checkbox__input" data-no-validate type="checkbox" value="1" name="form[department-checkbox]">
+														<label for="c_1" class="checkbox__label"><span class="checkbox__text">Замовити
+																послугу
+																<a target="_blank" href="https://novaposhta.ua/safeservice/">"Сейф-сервіс"
+																</a>(Безпечний платіж від Нової Пошти)</span></label>
+													</div>
+												</div>
+												<div class="post-office">
+													<div class="post-office__town form-line">
+														<input class="form-line__input input" data-validate data-required type="search" data-error="Введіть населений пункт" name="form[post-office-town]" id="post-office-town" placeholder="Населений пункт" autocomplete="off">
+														<!-- <div data-search-results class="form-line__result result-search">
+															<ul>
+																<li><a href="#">Ліхтар габаритний</a></li>
+																<li><a href="#">Ліхтар габаритний діодний</a></li>
+																<li><a href="#">Ліхтар габаритний діодний жовтий</a></li>
+																<li><a href="#">Ліхтар габаритний діодний жовтий 24 V</a></li>
+																<li><a href="#">Ліхтар габаритний діодний жовтий 24 V (в-во ISSIKSAN)</a>
+																</li>
+																<li><a href="#">Ліхтар габаритний діодний жовтий</a></li>
+																<li><a href="#">Ліхтар габаритний діодний жовтий 24 V</a></li>
+																<li><a href="#">Ліхтар габаритний діодний жовтий 24 V (в-во ISSIKSAN)</a>
+																</li>
+																<li><a href="#">Ліхтар габаритний діодний жовтий</a></li>
+																<li><a href="#">Ліхтар габаритний діодний жовтий 24 V</a></li>
+																<li><a href="#">Ліхтар габаритний діодний жовтий 24 V (в-во ISSIKSAN)</a>
+																</li>
+															</ul>
+														</div> -->
+													</div>
+													<div class="post-office__number form-line">
+														<input class="form-line__input input" data-validate data-required type="search" data-error="Виберіть поштомат" name="form[post-office-number]" id="post-office-number" placeholder="Поштомат" autocomplete="off">
+														<!-- <div data-search-results class="form-line__result result-search">
+															<ul>
+																<li><a href="#">Ліхтар габаритний</a></li>
+																<li><a href="#">Ліхтар габаритний діодний</a></li>
+																<li><a href="#">Ліхтар габаритний діодний жовтий</a></li>
+																<li><a href="#">Ліхтар габаритний діодний жовтий 24 V</a></li>
+																<li><a href="#">Ліхтар габаритний діодний жовтий 24 V (в-во ISSIKSAN)</a>
+																</li>
+																<li><a href="#">Ліхтар габаритний діодний жовтий</a></li>
+																<li><a href="#">Ліхтар габаритний діодний жовтий 24 V</a></li>
+																<li><a href="#">Ліхтар габаритний діодний жовтий 24 V (в-во ISSIKSAN)</a>
+																</li>
+																<li><a href="#">Ліхтар габаритний діодний жовтий</a></li>
+																<li><a href="#">Ліхтар габаритний діодний жовтий 24 V</a></li>
+																<li><a href="#">Ліхтар габаритний діодний жовтий 24 V (в-во ISSIKSAN)</a>
+																</li>
+															</ul>
+														</div> -->
+													</div>
+												</div>
+												<div class="addres">
+													<div class="addres__town form-line">
+														<input class="form-line__input input" data-validate data-required type="search" data-error="Введіть населений пункт" name="form[addres-town]" id="addres-town" placeholder="Населений пункт" autocomplete="off">
+														<!-- <div data-search-results class="form-line__result result-search">
+															<ul>
+																<li><a href="#">Ліхтар габаритний</a></li>
+																<li><a href="#">Ліхтар габаритний діодний</a></li>
+																<li><a href="#">Ліхтар габаритний діодний жовтий</a></li>
+																<li><a href="#">Ліхтар габаритний діодний жовтий 24 V</a></li>
+																<li><a href="#">Ліхтар габаритний діодний жовтий 24 V (в-во ISSIKSAN)</a>
+																</li>
+																<li><a href="#">Ліхтар габаритний діодний жовтий</a></li>
+																<li><a href="#">Ліхтар габаритний діодний жовтий 24 V</a></li>
+																<li><a href="#">Ліхтар габаритний діодний жовтий 24 V (в-во ISSIKSAN)</a>
+																</li>
+																<li><a href="#">Ліхтар габаритний діодний жовтий</a></li>
+																<li><a href="#">Ліхтар габаритний діодний жовтий 24 V</a></li>
+																<li><a href="#">Ліхтар габаритний діодний жовтий 24 V (в-во ISSIKSAN)</a>
+																</li>
+															</ul>
+														</div> -->
+													</div>
+													<div class="addres__street form-line">
+														<input class="form-line__input input" data-validate data-required type="text" data-error="Введіть вулицю" name="form[addres-street]" id="addres-street" placeholder="Вулиця" autocomplete="off">
+													</div>
+													<div class="addres__house form-line">
+														<input class="form-line__input input" data-validate data-required type="text" data-error="Введіть номер будинку" name="form[addres-house]" id="addres-house" placeholder="Будинок" autocomplete="off">
+													</div>
+													<div class="addres__apartment form-line">
+														<input class="form-line__input input" type="text" name="form[addres-apartment]" id="addres-apartment" placeholder="Квартира" autocomplete="off">
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="options__item">
+									<input id="o_2" class="options__input" type="radio" value="2" name="option">
+									<label for="o_2" class="options__label"><span class="options__text">Самовивіз</span></label>
+									<div class="options__body body-self-pickup">
+										<a href="#" class="body-self-pickup__link-map _icon-map-pin">вул. Шевченка, 4, м. Здолбунів,
+											Україна</a>
+										<div class="body-self-pickup__schedule schedule-self-pickup">
+											<div class="schedule-self-pickup__day _icon-calendar">Пн.- Пт. :</div>
+											<div class="schedule-self-pickup__hours _icon-clock">09:00 - 17:00</div>
+											<div class="schedule-self-pickup__day _icon-calendar">Субота :</div>
+											<div class="schedule-self-pickup__hours _icon-clock">10:00 - 14:00</div>
+											<div class="schedule-self-pickup__day _icon-calendar">Неділя :</div>
+											<div class="schedule-self-pickup__hours _icon-clock">Вихідний день</div>
+										</div>
+									</div>
+								</div>
+								<div class="options__item">
+									<input id="o_3" class="options__input" type="radio" value="2" name="option">
+									<label for="o_3" class="options__label"><span class="options__text">Кур'єрська
+											доставка</span></label>
+									<div class="options__body body-courier">
+										<div class="body-courier__title">Виберіть адресу для відправлення:</div>
+										<select class="body-courier__district" name="form[district]" data-class-modif="district">
+											<option value="1" selected>-- Виберіть область --</option>
+											<option value="2">Автономна Республіка Крим</option>
+											<option value="3">Вінницька область</option>
+											<option value="4">Волинська область</option>
+											<option value="5">Дніпропетровська область</option>
+											<option value="6">Донецька область</option>
+											<option value="7">Житомирська область</option>
+											<option value="8">Закарпатська область</option>
+											<option value="9">Запорізька область</option>
+											<option value="10">Івано-Франківська область</option>
+											<option value="11">Київська область</option>
+											<option value="12">Кіровоградська область</option>
+											<option value="13">Луганська область</option>
+											<option value="14">Львівська область</option>
+											<option value="15">Миколаївська область</option>
+											<option value="16">Одеська область</option>
+											<option value="17">Полтавська область</option>
+											<option value="18">Рівненська область</option>
+											<option value="19">Сумська область</option>
+											<option value="20">Тернопільська область</option>
+											<option value="21">Харківська область</option>
+											<option value="22">Херсонська область</option>
+											<option value="23">Хмельницька область</option>
+											<option value="24">Черкаська область</option>
+											<option value="25">Чернівецька область</option>
+											<option value="26">Чернігівська область</option>
+										</select>
+										<div class="body-courier__town form-line">
+											<input class="form-line__input input" data-validate data-required type="text" data-error="Введіть населений пункт" name="form[courier-town]" id="courier-town" placeholder="Населений пункт" autocomplete="off">
+										</div>
+										<div class="body-courier__street form-line">
+											<input class="form-line__input input" data-validate data-required type="text" data-error="Введіть вулицю" name="form[courier-street]" id="courier-street" placeholder="Вулиця" autocomplete="off">
+										</div>
+										<div class="body-courier__house form-line">
+											<input class="form-line__input input" data-validate data-required type="text" data-error="Введіть номер будинку" name="form[courier-house]" id="courier-house" placeholder="Будинок" autocomplete="off">
+										</div>
+										<div class="body-courier__apartment form-line">
+											<input class="form-line__input input" type="text" name="form[courier-apartment]" id="courier-apartment" placeholder="Квартира" autocomplete="off">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="delivery__pay pay-delivery">
+							<div class="pay-delivery__title">Оплата</div>
+							<div class="pay-delivery__options options">
+								<div class="options__item">
+									<input id="o_4" class="options__input" type="radio" value="1" name="pay-delivery">
+									<label for="o_4" class="options__label"><span class="options__text">Післяоплата у відділенні
+											Нової Пошти</span></label>
+								</div>
+								<div class="options__item">
+									<input id="o_5" class="options__input" checked type="radio" value="2" name="pay-delivery">
+									<label for="o_5" class="options__label"><span class="options__text">Оплата за
+											реквізитами</span></label>
+								</div>
+								<div class="pay-delivery__line form-line">
+									<label class="form-line__label" for="pay-comment">Коментар</label>
+									<textarea data-autoheight class="form-line__input input" name="form[pay-comment]" id="pay-comment" placeholder="Ваш коментар"></textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="placing-order__order content-cart">
+						<div class="content-cart__header">
+							<div class="content-cart__title">Ваше замовлення </div>
+						</div>
+						<div class="content-cart__body">
+							<ul class="content-cart__list">
+								<li class="content-cart__card content-card">
+									<a href="#" class="content-card__image">
+										<picture><source data-srcset="img/product/product.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/product/product.png" alt="product photo"></picture>
+									</a>
+									<div class="content-card__info info-product">
+										<div class="info-product__item item-info">
+											<div class="item-info__main">
+												<div class="item-info__code">Код: <span>ISS20301B</span></div>
+												<a href="#" class="item-info__name">Ліхтар габаритний діодний жовтий 24 V (в-во
+													ISSIKSAN)</a>
+												<div class="item-info__price"><span>200</span> грн/шт.</div>
+											</div>
+											<button type="button" class="item-info__delete _icon-delete"></button>
+										</div>
+										<div class="info-product__total total-info">
+											<div class="total-info__quantity">
+												<div data-quantity class="quantity">
+													<button data-quantity-minus type="button" class="quantity__button quantity__button_minus"></button>
+													<div class="quantity__input">
+														<input data-quantity-value autocomplete="off" type="text" name="form[]" value="1">
+													</div>
+													<button data-quantity-plus type="button" class="quantity__button quantity__button_plus"></button>
+												</div>
+											</div>
+											<div class="total-info__sum"><span>199</span>грн</div>
+										</div>
+									</div>
+								</li>
+								<li class="content-cart__card content-card">
+									<a href="#" class="content-card__image">
+										<picture><source data-srcset="img/product/product.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/product/product.png" alt="product photo"></picture>
+									</a>
+									<div class="content-card__info info-product">
+										<div class="info-product__item item-info">
+											<div class="item-info__main">
+												<div class="item-info__code">Код: <span>ISS20301B</span></div>
+												<a href="#" class="item-info__name">Ліхтар габаритний діодний жовтий 24 V (в-во
+													ISSIKSAN)</a>
+												<div class="item-info__price"><span>200</span> грн/шт.</div>
+											</div>
+											<button type="button" class="item-info__delete _icon-delete"></button>
+										</div>
+										<div class="info-product__total total-info">
+											<div class="total-info__quantity">
+												<div data-quantity class="quantity">
+													<button data-quantity-minus type="button" class="quantity__button quantity__button_minus"></button>
+													<div class="quantity__input">
+														<input data-quantity-value autocomplete="off" type="text" name="form[]" value="1">
+													</div>
+													<button data-quantity-plus type="button" class="quantity__button quantity__button_plus"></button>
+												</div>
+											</div>
+											<div class="total-info__sum"><span>199</span>грн</div>
+										</div>
+									</div>
+								</li>
+								<li class="content-cart__card content-card">
+									<a href="#" class="content-card__image">
+										<picture><source data-srcset="img/product/product.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/product/product.png" alt="product photo"></picture>
+									</a>
+									<div class="content-card__info info-product">
+										<div class="info-product__item item-info">
+											<div class="item-info__main">
+												<div class="item-info__code">Код: <span>ISS20301B</span></div>
+												<a href="#" class="item-info__name">Ліхтар габаритний діодний жовтий 24 V (в-во
+													ISSIKSAN)</a>
+												<div class="item-info__price"><span>200</span> грн/шт.</div>
+											</div>
+											<button type="button" class="item-info__delete _icon-delete"></button>
+										</div>
+										<div class="info-product__total total-info">
+											<div class="total-info__quantity">
+												<div data-quantity class="quantity">
+													<button data-quantity-minus type="button" class="quantity__button quantity__button_minus"></button>
+													<div class="quantity__input">
+														<input data-quantity-value autocomplete="off" type="text" name="form[]" value="1">
+													</div>
+													<button data-quantity-plus type="button" class="quantity__button quantity__button_plus"></button>
+												</div>
+											</div>
+											<div class="total-info__sum"><span>199</span>грн</div>
+										</div>
+									</div>
+								</li>
+								<li class="content-cart__card content-card">
+									<a href="#" class="content-card__image">
+										<picture><source data-srcset="img/product/product.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/product/product.png" alt="product photo"></picture>
+									</a>
+									<div class="content-card__info info-product">
+										<div class="info-product__item item-info">
+											<div class="item-info__main">
+												<div class="item-info__code">Код: <span>ISS20301B</span></div>
+												<a href="#" class="item-info__name">Ліхтар габаритний діодний жовтий 24 V (в-во
+													ISSIKSAN)</a>
+												<div class="item-info__price"><span>200</span> грн/шт.</div>
+											</div>
+											<button type="button" class="item-info__delete _icon-delete"></button>
+										</div>
+										<div class="info-product__total total-info">
+											<div class="total-info__quantity">
+												<div data-quantity class="quantity">
+													<button data-quantity-minus type="button" class="quantity__button quantity__button_minus"></button>
+													<div class="quantity__input">
+														<input data-quantity-value autocomplete="off" type="text" name="form[]" value="1">
+													</div>
+													<button data-quantity-plus type="button" class="quantity__button quantity__button_plus"></button>
+												</div>
+											</div>
+											<div class="total-info__sum"><span>199</span>грн</div>
+										</div>
+									</div>
+								</li>
+								<!-- <li class="content-cart__card content-card">
+								<a href="#" class="content-card__image">
+									<picture><source data-srcset="img/product/product.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/product/product.png" alt="product photo"></picture>
+								</a>
+								<div class="content-card__info info-product">
+									<div class="info-product__item item-info">
+										<div class="item-info__main">
+											<div class="item-info__code">Код: <span>ISS20301B</span></div>
+											<a href="#" class="item-info__name">Ліхтар габаритний діодний жовтий 24 V (в-во
+												ISSIKSAN)</a>
+											<div class="item-info__price"><span>200</span> грн/шт.</div>
+										</div>
+										<button type="button" class="item-info__delete _icon-delete"></button>
+									</div>
+									<div class="info-product__total total-info">
+										<div class="total-info__quantity">
+											<div data-quantity class="quantity">
+												<button data-quantity-minus type="button"
+													class="quantity__button quantity__button_minus"></button>
+												<div class="quantity__input">
+													<input data-quantity-value autocomplete="off" type="text" name="form[]" value="1">
+												</div>
+												<button data-quantity-plus type="button"
+													class="quantity__button quantity__button_plus"></button>
+											</div>
+										</div>
+										<div class="total-info__sum"><span>199</span>грн</div>
+									</div>
+								</div>
+							</li> -->
+							</ul>
+						</div>
+						<div class="content-cart__footer footer-cart">
+							<div class="footer-cart__total">До оплати без доставки: </div>
+							<div class="footer-cart__value">1990 грн</div>
+							<button type="submit" class="footer-cart__btn button button--blue">Оформити замовлення</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div id="placing-order-confirmation" aria-hidden="true" class="popup popup--confirmation-placing-order">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<div class="placing-order-confirmation">
+					<div class="placing-order-confirmation__image">
+						<picture><source data-srcset="img/popup/auto.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/popup/auto.jpg" alt="image auto"></picture>
+					</div>
+					<div class="placing-order-confirmation__content">
+						<div class="placing-order-confirmation__body">
+							<div class="placing-order-confirmation__title title title--blue">Дякуємо за замовлення!</div>
+							<p>Номер Вашого замовлення <span>01060323</span></p>
+							<p>Незабаром з Вами зв’яжеться менеджер для уточнення даних.</p>
+							<button data-close type="button" class="placing-order-confirmation__button button button--blue">Повернутися</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="js/app.min.js?_v=20230421230718"></script>
 </body>
 
 </html>

@@ -2616,19 +2616,24 @@
         let formValidate = {
             getErrors(form) {
                 let error = 0;
-                let formRequiredItems = form.querySelectorAll("*[data-required]");
+                let formRequiredItems = form.querySelectorAll("*[data-required]:not([data-no-validate])");
                 if (formRequiredItems.length) formRequiredItems.forEach((formRequiredItem => {
                     if ((null !== formRequiredItem.offsetParent || "SELECT" === formRequiredItem.tagName) && !formRequiredItem.disabled) if ("checkbox" === formRequiredItem.type && !formRequiredItem.checked) {
-                        this.addError(formRequiredItem);
-                        error++;
+                        if (!formRequiredItem.hasAttribute("data-no-validate")) {
+                            this.addError(formRequiredItem);
+                            error++;
+                        }
                     } else error += this.validateInput(formRequiredItem);
                 }));
                 let formCheckboxItems = form.querySelectorAll('input[type="checkbox"]');
                 if (formCheckboxItems.length) {
-                    let formCheckboxItemsChecked = Array.from(formCheckboxItems).filter((formCheckboxItem => formCheckboxItem.checked));
+                    let formCheckboxItemsChecked = Array.from(formCheckboxItems).filter((formCheckboxItem => formCheckboxItem.checked && !formCheckboxItem.hasAttribute("data-no-validate")));
                     if (0 === formCheckboxItemsChecked.length) {
-                        this.addError(formCheckboxItems[0]);
-                        error++;
+                        let firstCheckbox = formCheckboxItems[0];
+                        if (!firstCheckbox.hasAttribute("data-no-validate")) {
+                            this.addError(firstCheckbox);
+                            error++;
+                        }
                     } else this.removeError(formCheckboxItems[0]);
                 }
                 return error;
@@ -9136,7 +9141,7 @@ PERFORMANCE OF THIS SOFTWARE.
             searchResultItems.forEach((item => item.classList.remove("selected")));
         }
         searchBox.addEventListener("input", (function() {
-            if (searchBox.value.length > 0) showSearchResults(); else hideSearchResults();
+            if (searchBox.value.length > 2) showSearchResults(); else hideSearchResults();
         }));
         document.addEventListener("click", (function(event) {
             if (!searchResults.contains(event.target) && event.target !== searchBox) hideSearchResults();
