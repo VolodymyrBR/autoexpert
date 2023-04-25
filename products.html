@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230424223844">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230425230732">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -56,6 +56,11 @@
 							<li class="menu__item"><a href="about.html" class="menu__link">Про нас</a></li>
 							<li class="menu__item"><a href="contacts.html" class="menu__link">Контакти</a></li>
 						</ul>
+						<div class="menu__messenger messenger">
+							<a href="#" class="messenger__viber"></a>
+							<a href="#" class="messenger__telegram"></a>
+							<a href="#" class="messenger__whatsap"></a>
+						</div>
 					</nav>
 				</div>
 			</div>
@@ -834,10 +839,11 @@
 				<button data-close type="button" class="popup__close _icon-x"></button>
 				<div class="popup-order">
 					<div class="popup-order__title title title--blue">Замовити товар</div>
-					<a href="#" class="popup-order__image">
-						<picture><source data-srcset="img/product/product.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/product/product.png" alt="product photo"></picture>
-					</a>
+
 					<form data-dev data-goto-error data-popup-message="#order-confirmation" action="files/sendmail/sendmail.php" method="POST" class="popup-order__form form-order">
+						<a href="#" class="form-order__image">
+							<picture><source data-srcset="img/product/product.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/product/product.png" alt="product photo"></picture>
+						</a>
 						<div class="form-order__product product-order">
 							<div class="product-order__code">Код: <span>ISS20301B</span></div>
 							<a href="#" class="product-order__name">Ліхтар габаритний діодний жовтий 24 V (в-во
@@ -2098,7 +2104,115 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20230424223844"></script>
+
+	<div id="response" aria-hidden="true" class="popup popup--response popup_sho">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<button data-close type="button" class="popup__close _icon-x"></button>
+				<div class="response__text">
+					<form data-dev data-goto-error data-popup-message="#response-confirmation" action="files/sendmail/sendmail.php" method="POST" class="informations__response response-informations">
+						<div class="response-informations__title title title--blue">Написати відгук</div>
+						<div class="response-informations__subtitle">Оцінка</div>
+						<div class="response-informations__rating rating rating_set">
+							<div class="rating__body">
+								<div class="rating__active"></div>
+								<div class="rating__items">
+									<input type="radio" class="rating__item" value="1" name="rating">
+									<input type="radio" class="rating__item" value="2" name="rating">
+									<input type="radio" class="rating__item" value="3" name="rating">
+									<input type="radio" class="rating__item" value="4" name="rating">
+									<input type="radio" class="rating__item" value="5" name="rating">
+								</div>
+							</div>
+							<div class="rating__value">4.5</div>
+						</div>
+						<div class="response-informations__form-line form-line">
+							<label class="form-line__label" for="order-name">Ім'я<span>*</span></label>
+							<input class="form-line__input input" type="text" data-error="Введіть Ваше ім'я" name="form[response-name]" id="response-name" placeholder="Ім'я" data-required data-validate autocomplete="off">
+						</div>
+						<div class="response-informations__form-line form-line">
+							<label class="form-line__label" for="order-comment">Можете написати Ваш коментар</label>
+							<textarea data-autoheight class="form-line__input input" name="form[order-comment]" id="order-comment" placeholder="Ваш коментар"></textarea>
+						</div>
+						<div class="response-informations__emoji-cool cool-emoji">
+							<div class="cool-emoji__checkbox checkbox checkbox--emoji">
+								<input id="emoji_1" data-error="Хоча б один критерій має бути вибраний" class="checkbox__input" type="checkbox" value="1" name="form[]">
+								<label for="emoji_1" class="checkbox__label"><span class="checkbox__text">Гарне
+										обслуговування</span></label>
+							</div>
+							<div class="cool-emoji__checkbox checkbox checkbox--emoji">
+								<input id="emoji_2" data-error="Помилка" class="checkbox__input" type="checkbox" value="2" name="form[]">
+								<label for="emoji_2" class="checkbox__label"><span class="checkbox__text">Швидко
+										зв’язалися</span></label>
+							</div>
+							<div class="cool-emoji__checkbox checkbox checkbox--emoji">
+								<input id="emoji_3" data-error="Помилка" class="checkbox__input" type="checkbox" value="3" name="form[]">
+								<label for="emoji_3" class="checkbox__label"><span class="checkbox__text">Ввічливий
+										продавець</span></label>
+							</div>
+							<div class="cool-emoji__checkbox checkbox checkbox--emoji">
+								<input id="emoji_4" data-error="Помилка" class="checkbox__input" type="checkbox" value="4" name="form[]">
+								<label for="emoji_4" class="checkbox__label"><span class="checkbox__text">Товар був у
+										наявності</span></label>
+							</div>
+							<div class="cool-emoji__checkbox checkbox checkbox--emoji">
+								<input id="emoji_5" data-error="Помилка" class="checkbox__input" type="checkbox" value="5" name="form[]">
+								<label for="emoji_5" class="checkbox__label"><span class="checkbox__text">Актуальний
+										опис</span></label>
+							</div>
+							<div class="cool-emoji__checkbox checkbox checkbox--emoji">
+								<input id="emoji_6" data-error="Помилка" class="checkbox__input" type="checkbox" value="6" name="form[]">
+								<label for="emoji_6" class="checkbox__label"><span class="checkbox__text">Швидко відправили
+										товар</span></label>
+							</div>
+							<div class="cool-emoji__checkbox checkbox checkbox--emoji">
+								<input id="emoji_7" data-error="Помилка" class="checkbox__input" type="checkbox" value="7" name="form[]">
+								<label for="emoji_7" class="checkbox__label"><span class="checkbox__text">Актуальна
+										ціна</span></label>
+							</div>
+						</div>
+						<div class="response-informations__emoji-negative negative-emoji">
+							<div class="negative-emoji__checkbox checkbox checkbox--emoji">
+								<input id="emoji_8" data-error="Помилка" class="checkbox__input" type="checkbox" value="8" name="form[]">
+								<label for="emoji_8" class="checkbox__label"><span class="checkbox__text">Товару не має в
+										наявності</span></label>
+							</div>
+							<div class="negative-emoji__checkbox checkbox checkbox--emoji">
+								<input id="emoji_9" data-error="Помилка" class="checkbox__input" type="checkbox" value="9" name="form[]">
+								<label for="emoji_9" class="checkbox__label"><span class="checkbox__text">Зі мною не
+										зв’язалися</span></label>
+							</div>
+							<div class="negative-emoji__checkbox checkbox checkbox--emoji">
+								<input id="emoji_10" data-error="Помилка" class="checkbox__input" type="checkbox" value="10" name="form[]">
+								<label for="emoji_10" class="checkbox__label"><span class="checkbox__text">Ціна вище
+										зазначеної</span></label>
+							</div>
+							<div class="negative-emoji__checkbox checkbox checkbox--emoji">
+								<input id="emoji_11" data-error="Помилка" class="checkbox__input" type="checkbox" value="11" name="form[]">
+								<label for="emoji_11" class="checkbox__label"><span class="checkbox__text">Невідповідність
+										товару
+										опису</span></label>
+							</div>
+							<div class="negative-emoji__checkbox checkbox checkbox--emoji">
+								<input id="emoji_12" data-error="Помилка" class="checkbox__input" type="checkbox" value="12" name="form[]">
+								<label for="emoji_12" class="checkbox__label"><span class="checkbox__text">Відправляли довше
+										обіцяного</span></label>
+							</div>
+							<div class="negative-emoji__checkbox checkbox checkbox--emoji">
+								<input id="emoji_13" data-error="Помилка" class="checkbox__input" type="checkbox" value="13" name="form[]">
+								<label for="emoji_13" class="checkbox__label"><span class="checkbox__text">Неввічливий
+										продавець</span></label>
+							</div>
+						</div>
+						<button type="submit" class="response-informations__button button button--border-blue">Надіслати
+							відгук</button>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="js/app.min.js?_v=20230425230732"></script>
 </body>
 
 </html>
