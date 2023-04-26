@@ -2616,24 +2616,19 @@
         let formValidate = {
             getErrors(form) {
                 let error = 0;
-                let formRequiredItems = form.querySelectorAll("*[data-required]:not([data-no-validate])");
+                let formRequiredItems = form.querySelectorAll("*[data-required]");
                 if (formRequiredItems.length) formRequiredItems.forEach((formRequiredItem => {
                     if ((null !== formRequiredItem.offsetParent || "SELECT" === formRequiredItem.tagName) && !formRequiredItem.disabled) if ("checkbox" === formRequiredItem.type && !formRequiredItem.checked) {
-                        if (!formRequiredItem.hasAttribute("data-no-validate")) {
-                            this.addError(formRequiredItem);
-                            error++;
-                        }
+                        this.addError(formRequiredItem);
+                        error++;
                     } else error += this.validateInput(formRequiredItem);
                 }));
                 let formCheckboxItems = form.querySelectorAll('input[type="checkbox"]');
                 if (formCheckboxItems.length) {
-                    let formCheckboxItemsChecked = Array.from(formCheckboxItems).filter((formCheckboxItem => formCheckboxItem.checked && !formCheckboxItem.hasAttribute("data-no-validate")));
+                    let formCheckboxItemsChecked = Array.from(formCheckboxItems).filter((formCheckboxItem => formCheckboxItem.checked));
                     if (0 === formCheckboxItemsChecked.length) {
-                        let firstCheckbox = formCheckboxItems[0];
-                        if (!firstCheckbox.hasAttribute("data-no-validate")) {
-                            this.addError(firstCheckbox);
-                            error++;
-                        }
+                        this.addError(formCheckboxItems[0]);
+                        error++;
                     } else this.removeError(formCheckboxItems[0]);
                 }
                 return error;

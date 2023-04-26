@@ -2733,14 +2733,6 @@ body::after {
   color: #FFFFFF;
 }
 
-.popup--placing-order .checkbox a {
-  color: #499AF9;
-  text-decoration: underline;
-  -webkit-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
-}
-
 .popup--placing-order .body-self-pickup__link-map {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7418,7 +7410,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   }
 
   .popup--response .popup__content {
-    padding-top: 0.625rem;
+    padding-top: 3.125rem;
   }
 
   .popup--response .popup__content {
@@ -8571,6 +8563,10 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     -webkit-box-flex: 0;
         -ms-flex: 0 1 6.25rem;
             flex: 0 1 6.25rem;
+  }
+
+  .popup--response .response-informations__title {
+    font-size: 2rem;
   }
 
   .swiper-pagination-bullet {
@@ -10351,15 +10347,15 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     }
 }
 
-@supports (padding-top: clamp( 0.625rem , -1.4583333333rem  +  4.3402777778vw , 3.75rem )) {
+@supports (padding-top: clamp( 3.125rem , 2.7083333333rem  +  0.8680555556vw , 3.75rem )) {
     .popup--response .popup__content {
-      padding-top: clamp( 0.625rem , -1.4583333333rem  +  4.3402777778vw , 3.75rem );
+      padding-top: clamp( 3.125rem , 2.7083333333rem  +  0.8680555556vw , 3.75rem );
     }
 }
 
-@supports not (padding-top: clamp( 0.625rem , -1.4583333333rem  +  4.3402777778vw , 3.75rem )) {
+@supports not (padding-top: clamp( 3.125rem , 2.7083333333rem  +  0.8680555556vw , 3.75rem )) {
     .popup--response .popup__content {
-      padding-top: calc(0.625rem + 3.125 * (100vw - 48rem) / 72);
+      padding-top: calc(3.125rem + 0.625 * (100vw - 48rem) / 72);
     }
 }
 
@@ -10806,10 +10802,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
 
   .popup--placing-order .body-service__title:hover {
     border-color: #499AF9;
-  }
-
-  .popup--placing-order .checkbox a:hover {
-    text-decoration: none;
   }
 
   .popup--response .popup__close:hover {
