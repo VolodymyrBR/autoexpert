@@ -7285,6 +7285,7 @@
         function headerScroll() {
             addWindowScrollEvent = true;
             const header = document.querySelector("header.header");
+            if (!header) return;
             const headerShow = header.hasAttribute("data-scroll-show");
             const headerShowTimer = header.dataset.scrollShow ? header.dataset.scrollShow : 500;
             const startPoint = header.dataset.scroll ? header.dataset.scroll : 1;
@@ -9125,67 +9126,70 @@ PERFORMANCE OF THIS SOFTWARE.
         }
         const da = new DynamicAdapt("max");
         da.init();
-        const searchBox = document.getElementById("search");
-        const searchResults = document.getElementById("search-results");
-        const searchResultItems = searchResults.querySelectorAll("li");
-        function showSearchResults() {
-            searchResults.classList.add("visible");
-            searchResultItems[0].classList.add("selected");
-        }
-        function hideSearchResults() {
-            searchResults.classList.remove("visible");
-            searchResultItems.forEach((item => item.classList.remove("selected")));
-        }
-        searchBox.addEventListener("input", (function() {
-            if (searchBox.value.length > 2) showSearchResults(); else hideSearchResults();
-        }));
-        document.addEventListener("click", (function(event) {
-            if (!searchResults.contains(event.target) && event.target !== searchBox) hideSearchResults();
-        }));
-        document.addEventListener("keydown", (function(event) {
-            if ("Escape" === event.key) {
-                hideSearchResults();
-                searchBox.blur();
-            } else if ("ArrowDown" === event.key && searchResults.classList.contains("visible")) {
-                event.preventDefault();
-                const selected = searchResults.querySelector(".selected");
-                if (selected) {
-                    selected.classList.remove("selected");
-                    const next = selected.nextElementSibling;
-                    if (next) next.classList.add("selected"); else searchResultItems[0].classList.add("selected");
-                } else searchResultItems[0].classList.add("selected");
-            } else if ("ArrowUp" === event.key && searchResults.classList.contains("visible")) {
-                event.preventDefault();
-                const selected = searchResults.querySelector(".selected");
-                if (selected) {
-                    selected.classList.remove("selected");
-                    const prev = selected.previousElementSibling;
-                    if (prev) prev.classList.add("selected"); else searchResultItems[searchResultItems.length - 1].classList.add("selected");
-                } else searchResultItems[searchResultItems.length - 1].classList.add("selected");
-            } else if ("Enter" === event.key && searchResults.classList.contains("visible")) {
-                const selected = searchResults.querySelector(".selected");
-                if (selected) {
-                    searchBox.value = selected.textContent;
+        const searchBox = document.querySelector("#search");
+        const searchResults = document.querySelector("#search-results");
+        const searchResultItems = searchResults ? searchResults.querySelectorAll("li") : [];
+        if (searchBox && searchResults && searchResultItems.length) {
+            function showSearchResults() {
+                searchResults.classList.add("visible");
+                searchResultItems[0].classList.add("selected");
+            }
+            function hideSearchResults() {
+                searchResults.classList.remove("visible");
+                searchResultItems.forEach((item => item.classList.remove("selected")));
+            }
+            searchBox.addEventListener("input", (function() {
+                if (searchBox.value.length > 2) showSearchResults(); else hideSearchResults();
+            }));
+            document.addEventListener("click", (function(event) {
+                if (!searchResults.contains(event.target) && event.target !== searchBox) hideSearchResults();
+            }));
+            document.addEventListener("keydown", (function(event) {
+                if ("Escape" === event.key) {
+                    hideSearchResults();
+                    searchBox.blur();
+                } else if ("ArrowDown" === event.key && searchResults.classList.contains("visible")) {
+                    event.preventDefault();
+                    const selected = searchResults.querySelector(".selected");
+                    if (selected) {
+                        selected.classList.remove("selected");
+                        const next = selected.nextElementSibling;
+                        if (next) next.classList.add("selected"); else searchResultItems[0].classList.add("selected");
+                    } else searchResultItems[0].classList.add("selected");
+                } else if ("ArrowUp" === event.key && searchResults.classList.contains("visible")) {
+                    event.preventDefault();
+                    const selected = searchResults.querySelector(".selected");
+                    if (selected) {
+                        selected.classList.remove("selected");
+                        const prev = selected.previousElementSibling;
+                        if (prev) prev.classList.add("selected"); else searchResultItems[searchResultItems.length - 1].classList.add("selected");
+                    } else searchResultItems[searchResultItems.length - 1].classList.add("selected");
+                } else if ("Enter" === event.key && searchResults.classList.contains("visible")) {
+                    const selected = searchResults.querySelector(".selected");
+                    if (selected) {
+                        searchBox.value = selected.textContent;
+                        hideSearchResults();
+                        searchBox.focus();
+                    }
+                }
+            }));
+            searchResultItems.forEach((function(item) {
+                item.addEventListener("mouseover", (function() {
+                    searchResultItems.forEach((function(result) {
+                        result.classList.remove("selected");
+                    }));
+                    item.classList.add("selected");
+                }));
+                item.addEventListener("mousedown", (function() {
+                    searchBox.value = item.textContent;
                     hideSearchResults();
                     searchBox.focus();
-                }
-            }
-        }));
-        searchResultItems.forEach((function(item) {
-            item.addEventListener("mouseover", (function() {
-                searchResultItems.forEach((function(result) {
-                    result.classList.remove("selected");
                 }));
-                item.classList.add("selected");
             }));
-            item.addEventListener("mousedown", (function() {
-                searchBox.value = item.textContent;
-                hideSearchResults();
-                searchBox.focus();
-            }));
-        }));
+        }
         const cartButton = document.querySelector(".action-header__cart");
-        const cartCountSpan = cartButton.querySelector("span");
+        let cartCountSpan;
+        if (cartButton) cartCountSpan = cartButton.querySelector("span");
         document.querySelectorAll("[data-cart-in]");
         let cartCount = 0;
         document.addEventListener("click", (event => {
@@ -9202,7 +9206,7 @@ PERFORMANCE OF THIS SOFTWARE.
                         infoBlock.classList.add("_cart-in");
                         cartCount++;
                     }
-                    cartCountSpan.textContent = cartCount;
+                    if (cartCountSpan) cartCountSpan.textContent = cartCount;
                 }
             }
         }));
@@ -9241,7 +9245,7 @@ PERFORMANCE OF THIS SOFTWARE.
         }
         const fileInput = document.querySelector(".line-upload__file");
         const selectedFileName = document.querySelector(".line-upload__file-name");
-        fileInput.addEventListener("change", (function() {
+        if (fileInput && selectedFileName) fileInput.addEventListener("change", (function() {
             const files = this.files;
             const fileList = [];
             for (let i = 0; i < files.length; i++) fileList.push(files[i].name);
