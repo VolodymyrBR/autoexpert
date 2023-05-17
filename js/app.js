@@ -9126,67 +9126,87 @@ PERFORMANCE OF THIS SOFTWARE.
         }
         const da = new DynamicAdapt("max");
         da.init();
-        const searchBox = document.querySelector("#search");
-        const searchResults = document.querySelector("#search-results");
-        const searchResultItems = searchResults ? searchResults.querySelectorAll("li") : [];
-        if (searchBox && searchResults && searchResultItems.length) {
-            function showSearchResults() {
-                searchResults.classList.add("visible");
-                searchResultItems[0].classList.add("selected");
-            }
-            function hideSearchResults() {
-                searchResults.classList.remove("visible");
-                searchResultItems.forEach((item => item.classList.remove("selected")));
-            }
-            searchBox.addEventListener("input", (function() {
-                if (searchBox.value.length > 2) showSearchResults(); else hideSearchResults();
-            }));
-            document.addEventListener("click", (function(event) {
-                if (!searchResults.contains(event.target) && event.target !== searchBox) hideSearchResults();
-            }));
-            document.addEventListener("keydown", (function(event) {
-                if ("Escape" === event.key) {
-                    hideSearchResults();
-                    searchBox.blur();
-                } else if ("ArrowDown" === event.key && searchResults.classList.contains("visible")) {
-                    event.preventDefault();
-                    const selected = searchResults.querySelector(".selected");
-                    if (selected) {
-                        selected.classList.remove("selected");
-                        const next = selected.nextElementSibling;
-                        if (next) next.classList.add("selected"); else searchResultItems[0].classList.add("selected");
-                    } else searchResultItems[0].classList.add("selected");
-                } else if ("ArrowUp" === event.key && searchResults.classList.contains("visible")) {
-                    event.preventDefault();
-                    const selected = searchResults.querySelector(".selected");
-                    if (selected) {
-                        selected.classList.remove("selected");
-                        const prev = selected.previousElementSibling;
-                        if (prev) prev.classList.add("selected"); else searchResultItems[searchResultItems.length - 1].classList.add("selected");
-                    } else searchResultItems[searchResultItems.length - 1].classList.add("selected");
-                } else if ("Enter" === event.key && searchResults.classList.contains("visible")) {
-                    const selected = searchResults.querySelector(".selected");
-                    if (selected) {
-                        searchBox.value = selected.textContent;
-                        hideSearchResults();
-                        searchBox.focus();
-                    }
-                }
-            }));
-            searchResultItems.forEach((function(item) {
-                item.addEventListener("mouseover", (function() {
-                    searchResultItems.forEach((function(result) {
-                        result.classList.remove("selected");
+        const searchBoxes = Array.from(document.querySelectorAll(".search-field"));
+        const searchResults = Array.from(document.querySelectorAll(".result-search"));
+        const searchResultItems = searchResults.map((results => Array.from(results.querySelectorAll("li"))));
+        searchBoxes.forEach(((searchBox, index) => {
+            const items = searchResultItems[index];
+            if (searchBox && searchResults[index] && items.length) {
+                function showSearchResults() {
+                    searchResults[index].classList.add("visible");
+                    const query = searchBox.value.toLowerCase();
+                    let matchingItems = [];
+                    items.forEach((item => {
+                        const itemText = item.textContent.toLowerCase();
+                        if (-1 !== itemText.indexOf(query)) {
+                            item.classList.remove("hidden");
+                            matchingItems.push(item);
+                        } else item.classList.add("hidden");
                     }));
-                    item.classList.add("selected");
+                    if (matchingItems.length > 0) matchingItems[0].classList.add("selected");
+                }
+                function hideSearchResults() {
+                    searchResults[index].classList.remove("visible");
+                    searchResultItems[index].forEach((item => item.classList.remove("selected")));
+                }
+                searchBox.addEventListener("input", (function() {
+                    if (searchBox.value.length > 2) showSearchResults(); else hideSearchResults();
                 }));
-                item.addEventListener("mousedown", (function() {
-                    searchBox.value = item.textContent;
-                    hideSearchResults();
-                    searchBox.focus();
+                document.addEventListener("click", (function(event) {
+                    if (!searchResults[index].contains(event.target) && event.target !== searchBox) hideSearchResults();
                 }));
-            }));
-        }
+                document.addEventListener("keydown", (function(event) {
+                    if ("Escape" === event.key) {
+                        hideSearchResults();
+                        searchBox.blur();
+                    } else if ("ArrowDown" === event.key && searchResults[index].classList.contains("visible") && searchResultItems[index].length > 0) {
+                        event.preventDefault();
+                        const selected = searchResults.querySelector(".selected");
+                        if (selected) {
+                            selected.classList.remove("selected");
+                            const next = selected.nextElementSibling;
+                            if (next) next.classList.add("selected"); else searchResultItems[index][0].classList.add("selected");
+                            const prev = selected.previousElementSibling;
+                            if (prev) prev.classList.add("selected"); else searchResultItems[index][searchResultItems[index].length - 1].classList.add("selected");
+                        } else searchResultItems[0].classList.add("selected");
+                    } else if ("ArrowUp" === event.key && searchResults[index].classList.contains("visible") && searchResultItems[index].length > 0) {
+                        event.preventDefault();
+                        const selected = searchResults.querySelector(".selected");
+                        if (selected) {
+                            selected.classList.remove("selected");
+                            const prev = selected.previousElementSibling;
+                            if (prev) prev.classList.add("selected"); else searchResultItems[searchResultItems.length - 1].classList.add("selected");
+                        } else searchResultItems[searchResultItems.length - 1].classList.add("selected");
+                    } else if ("Enter" === event.key && searchResults.classList.contains("visible")) {
+                        const selected = searchResults.querySelector(".selected");
+                        if (selected) {
+                            searchBox.value = selected.textContent;
+                            hideSearchResults();
+                            searchBox.focus();
+                        }
+                    }
+                }));
+                searchResultItems.forEach((function(results) {
+                    results.forEach((function(item) {
+                        item.addEventListener("mouseover", (function() {
+                            results.forEach((function(result) {
+                                result.classList.remove("selected");
+                            }));
+                            item.classList.add("selected");
+                        }));
+                        item.addEventListener("mousedown", (function() {
+                            searchBoxes.forEach((function(searchBox, index) {
+                                if (searchResultItems[index].includes(item)) {
+                                    searchBox.value = item.textContent;
+                                    hideSearchResults();
+                                    searchBox.focus();
+                                }
+                            }));
+                        }));
+                    }));
+                }));
+            }
+        }));
         const cartButton = document.querySelector(".action-header__cart");
         let cartCountSpan;
         if (cartButton) cartCountSpan = cartButton.querySelector("span");
